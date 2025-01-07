@@ -20,6 +20,8 @@
 /tests/ApiWhatsAppVerification.Tests/obj/Debug/net8.0/ApiWhatsAppVerification.Tests.AssemblyInfo.cs
 /tests/ApiWhatsAppVerification.Tests/obj/Debug/net8.0/ApiWhatsAppVerification.Tests.AssemblyInfoInputs.cache
 /.vs/ApiWhatsAppVerification/v17/.suo
+/tests/ApiWhatsAppVerification.Tests/obj/Debug/net8.0/
+src/ApiWhatsAppVerification.Application/bin/Debug/net8.0/
 src/ApiWhatsAppVerification.Application/bin/Debug/net8.0/ApiWhatsAppVerification.Application.deps.json
 src/ApiWhatsAppVerification.Application/bin/Debug/net8.0/ApiWhatsAppVerification.Application.deps.json
 src/ApiWhatsAppVerification.Application/bin/Debug/net8.0/ApiWhatsAppVerification.Application.dll
