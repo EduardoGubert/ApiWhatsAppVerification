@@ -1,0 +1,21 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/ApiWhatsAppVerification/CopilotIndices/0.2.1657.32929
+/.vs/ApiWhatsAppVerification/FileContentIndex/0bb7b568-91ef-43e9-92a1-93cfeebcc86b.vsidx
+/.vs/ApiWhatsAppVerification/FileContentIndex/740ddd98-82a8-4ab9-bfeb-b7995d79e506.vsidx
+/.vs/ApiWhatsAppVerification/v17
+/src/ApiWhatsAppVerification.Application/obj/Debug/net8.0/ApiWhatsAppVerification.Application.AssemblyInfo.cs
+/src/ApiWhatsAppVerification.Application/obj/Debug/net8.0/ApiWhatsAppVerification.Application.AssemblyInfoInputs.cache
+/src/ApiWhatsAppVerification.Application/obj/Debug/net8.0/ApiWhatsAppVerification.Application.csproj.AssemblyReference.cache
+/src/ApiWhatsAppVerification.Domain/obj/Debug/net8.0/ApiWhatsAppVerification.Domain.AssemblyInfo.cs
+/src/ApiWhatsAppVerification.Domain/obj/Debug/net8.0/ApiWhatsAppVerification.Domain.AssemblyInfoInputs.cache
+/src/ApiWhatsAppVerification.Infrastructure/obj/Debug/net8.0/ApiWhatsAppVerification.Infrastructure.AssemblyInfo.cs
+/src/ApiWhatsAppVerification.Infrastructure/obj/Debug/net8.0/ApiWhatsAppVerification.Infrastructure.AssemblyInfoInputs.cache
+/src/ApiWhatsAppVerification.Infrastructure/obj/Debug/net8.0/ApiWhatsAppVerification.Infrastructure.csproj.AssemblyReference.cache
+/src/ApiWhatsAppVerification.WebApi/obj/Debug/net8.0/ApiWhatsAppVerification.WebApi.AssemblyInfo.cs
+/src/ApiWhatsAppVerification.WebApi/obj/Debug/net8.0/ApiWhatsAppVerification.WebApi.AssemblyInfoInputs.cache
+/src/ApiWhatsAppVerification.WebApi/obj/Debug/net8.0/ApiWhatsAppVerification.WebApi.csproj.AssemblyReference.cache
+/tests/ApiWhatsAppVerification.Tests/obj/Debug/net8.0/ApiWhatsAppVerification.Tests.AssemblyInfo.cs
+/tests/ApiWhatsAppVerification.Tests/obj/Debug/net8.0/ApiWhatsAppVerification.Tests.AssemblyInfoInputs.cache
