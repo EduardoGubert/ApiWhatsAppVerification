@@ -189,3 +189,13 @@ tests/ApiWhatsAppVerification.Tests/obj/Debug/net8.0/ApiWhatsAppVerification.Tes
 tests/ApiWhatsAppVerification.Tests/obj/Debug/net8.0/ApiWhatsAppVerification.Tests.sourcelink.json
 tests/ApiWhatsAppVerification.Tests/obj/Debug/net8.0/ref/ApiWhatsAppVerification.Tests.dll
 tests/ApiWhatsAppVerification.Tests/obj/Debug/net8.0/refint/ApiWhatsAppVerification.Tests.dll
+/src/ApiWhatsAppVerification.Application/obj/Debug/net8.0/ApiWhatsAppVerification.Application.assets.cache
+/src/ApiWhatsAppVerification.Domain/obj/Debug/net8.0/ApiWhatsAppVerification.Domain.assets.cache
+/src/ApiWhatsAppVerification.Infrastructure/obj/Debug/net8.0/ApiWhatsAppVerification.Infrastructure.assets.cache
+/src/ApiWhatsAppVerification.WebApi/obj/Debug/net8.0/ApiWhatsAppVerification.WebApi.assets.cache
+/tests/ApiWhatsAppVerification.Tests/obj/Debug/net8.0/ApiWhatsAppVerification.Tests.assets.cache
+/src/ApiWhatsAppVerification.Application/obj/project.nuget.cache
+/src/ApiWhatsAppVerification.Domain/obj/project.nuget.cache
+/src/ApiWhatsAppVerification.Infrastructure/obj/project.nuget.cache
+/src/ApiWhatsAppVerification.WebApi/obj/project.nuget.cache
+/tests/ApiWhatsAppVerification.Tests/obj/project.nuget.cache
