@@ -107,6 +107,43 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "ApiWhatsAppVerification.Application/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "ApiWhatsAppVerification.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ApiWhatsAppVerification.Application.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ApiWhatsAppVerification.Application.dll": {}
+        }
+      },
+      "ApiWhatsAppVerification.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/ApiWhatsAppVerification.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ApiWhatsAppVerification.Domain.dll": {}
+        }
+      },
+      "ApiWhatsAppVerification.Infrastructure/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "ApiWhatsAppVerification.Application": "1.0.0",
+          "ApiWhatsAppVerification.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/ApiWhatsAppVerification.Infrastructure.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/ApiWhatsAppVerification.Infrastructure.dll": {}
+        }
       }
     }
   },
@@ -473,10 +510,27 @@
         "swashbuckle.aspnetcore.swaggerui.6.6.2.nupkg.sha512",
         "swashbuckle.aspnetcore.swaggerui.nuspec"
       ]
+    },
+    "ApiWhatsAppVerification.Application/1.0.0": {
+      "type": "project",
+      "path": "../ApiWhatsAppVerification.Application/ApiWhatsAppVerification.Application.csproj",
+      "msbuildProject": "../ApiWhatsAppVerification.Application/ApiWhatsAppVerification.Application.csproj"
+    },
+    "ApiWhatsAppVerification.Domain/1.0.0": {
+      "type": "project",
+      "path": "../ApiWhatsAppVerification.Domain/ApiWhatsAppVerification.Domain.csproj",
+      "msbuildProject": "../ApiWhatsAppVerification.Domain/ApiWhatsAppVerification.Domain.csproj"
+    },
+    "ApiWhatsAppVerification.Infrastructure/1.0.0": {
+      "type": "project",
+      "path": "../ApiWhatsAppVerification.Infrastructure/ApiWhatsAppVerification.Infrastructure.csproj",
+      "msbuildProject": "../ApiWhatsAppVerification.Infrastructure/ApiWhatsAppVerification.Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
+      "ApiWhatsAppVerification.Application >= 1.0.0",
+      "ApiWhatsAppVerification.Infrastructure >= 1.0.0",
       "Microsoft.AspNetCore.OpenApi >= 8.0.10",
       "Swashbuckle.AspNetCore >= 6.6.2"
     ]
@@ -488,11 +542,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\PROJETOS\\ApiWhatsAppVerification\\ApiWhatsAppVerification.WebApi\\ApiWhatsAppVerification.WebApi.csproj",
+      "projectUniqueName": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.WebApi\\ApiWhatsAppVerification.WebApi.csproj",
       "projectName": "ApiWhatsAppVerification.WebApi",
-      "projectPath": "D:\\PROJETOS\\ApiWhatsAppVerification\\ApiWhatsAppVerification.WebApi\\ApiWhatsAppVerification.WebApi.csproj",
+      "projectPath": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.WebApi\\ApiWhatsAppVerification.WebApi.csproj",
       "packagesPath": "C:\\Users\\eduar\\.nuget\\packages\\",
-      "outputPath": "D:\\PROJETOS\\ApiWhatsAppVerification\\ApiWhatsAppVerification.WebApi\\obj\\",
+      "outputPath": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.WebApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -513,7 +567,14 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Application\\ApiWhatsAppVerification.Application.csproj": {
+              "projectPath": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Application\\ApiWhatsAppVerification.Application.csproj"
+            },
+            "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Infrastructure\\ApiWhatsAppVerification.Infrastructure.csproj": {
+              "projectPath": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Infrastructure\\ApiWhatsAppVerification.Infrastructure.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

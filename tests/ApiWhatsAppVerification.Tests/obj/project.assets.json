@@ -988,11 +988,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\PROJETOS\\ApiWhatsAppVerification\\ApiWhatsAppVerification.Tests\\ApiWhatsAppVerification.Tests.csproj",
+      "projectUniqueName": "D:\\PROJETOS\\ApiWhatsAppVerification\\tests\\ApiWhatsAppVerification.Tests\\ApiWhatsAppVerification.Tests.csproj",
       "projectName": "ApiWhatsAppVerification.Tests",
-      "projectPath": "D:\\PROJETOS\\ApiWhatsAppVerification\\ApiWhatsAppVerification.Tests\\ApiWhatsAppVerification.Tests.csproj",
+      "projectPath": "D:\\PROJETOS\\ApiWhatsAppVerification\\tests\\ApiWhatsAppVerification.Tests\\ApiWhatsAppVerification.Tests.csproj",
       "packagesPath": "C:\\Users\\eduar\\.nuget\\packages\\",
-      "outputPath": "D:\\PROJETOS\\ApiWhatsAppVerification\\ApiWhatsAppVerification.Tests\\obj\\",
+      "outputPath": "D:\\PROJETOS\\ApiWhatsAppVerification\\tests\\ApiWhatsAppVerification.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

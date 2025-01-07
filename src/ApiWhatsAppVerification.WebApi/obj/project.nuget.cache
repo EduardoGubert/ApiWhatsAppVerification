@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gJtWgaBdyeM=",
+  "dgSpecHash": "Ni0t7JzOTiA=",
   "success": true,
-  "projectFilePath": "D:\\PROJETOS\\ApiWhatsAppVerification\\ApiWhatsAppVerification.WebApi\\ApiWhatsAppVerification.WebApi.csproj",
+  "projectFilePath": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.WebApi\\ApiWhatsAppVerification.WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\eduar\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.10\\microsoft.aspnetcore.openapi.8.0.10.nupkg.sha512",
     "C:\\Users\\eduar\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Y5rksoOlgAg=",
+  "dgSpecHash": "mQY2pcbqkRU=",
   "success": true,
-  "projectFilePath": "D:\\PROJETOS\\ApiWhatsAppVerification\\ApiWhatsAppVerification.Domain\\ApiWhatsAppVerification.Domain.csproj",
+  "projectFilePath": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Domain\\ApiWhatsAppVerification.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

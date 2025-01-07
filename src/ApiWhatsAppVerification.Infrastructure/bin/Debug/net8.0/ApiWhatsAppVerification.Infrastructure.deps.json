@@ -1,0 +1,56 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "ApiWhatsAppVerification.Infrastructure/1.0.0": {
+        "dependencies": {
+          "ApiWhatsAppVerification.Application": "1.0.0",
+          "ApiWhatsAppVerification.Domain": "1.0.0"
+        },
+        "runtime": {
+          "ApiWhatsAppVerification.Infrastructure.dll": {}
+        }
+      },
+      "ApiWhatsAppVerification.Application/1.0.0": {
+        "dependencies": {
+          "ApiWhatsAppVerification.Domain": "1.0.0"
+        },
+        "runtime": {
+          "ApiWhatsAppVerification.Application.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "ApiWhatsAppVerification.Domain/1.0.0": {
+        "runtime": {
+          "ApiWhatsAppVerification.Domain.dll": {
+            "assemblyVersion": "1.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ApiWhatsAppVerification.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ApiWhatsAppVerification.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ApiWhatsAppVerification.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
