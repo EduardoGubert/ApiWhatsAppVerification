@@ -3,60 +3,112 @@
   "WorkspaceRootPath": "D:\\PROJETOS\\ApiWhatsAppVerification\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3C483EAB-6103-4F0B-B219-8C368A4BC4FC}|src\\ApiWhatsAppVerification.WebApi\\ApiWhatsAppVerification.WebApi.csproj|d:\\projetos\\apiwhatsappverification\\src\\apiwhatsappverification.webapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C483EAB-6103-4F0B-B219-8C368A4BC4FC}|src\\ApiWhatsAppVerification.WebApi\\ApiWhatsAppVerification.WebApi.csproj|solutionrelative:src\\apiwhatsappverification.webapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{ED215385-0021-4E1B-97DF-9866863FF5DA}|src\\ApiWhatsAppVerification.Infrastructure\\ApiWhatsAppVerification.Infrastructure.csproj|d:\\projetos\\apiwhatsappverification\\src\\apiwhatsappverification.infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED215385-0021-4E1B-97DF-9866863FF5DA}|src\\ApiWhatsAppVerification.Infrastructure\\ApiWhatsAppVerification.Infrastructure.csproj|solutionrelative:src\\apiwhatsappverification.infrastructure\\repositories\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3C483EAB-6103-4F0B-B219-8C368A4BC4FC}|src\\ApiWhatsAppVerification.WebApi\\ApiWhatsAppVerification.WebApi.csproj|d:\\projetos\\apiwhatsappverification\\src\\apiwhatsappverification.webapi\\controllers\\phoneverificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C483EAB-6103-4F0B-B219-8C368A4BC4FC}|src\\ApiWhatsAppVerification.WebApi\\ApiWhatsAppVerification.WebApi.csproj|solutionrelative:src\\apiwhatsappverification.webapi\\controllers\\phoneverificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7D0E94EA-A562-4F16-A531-26C3D2E63C77}|src\\ApiWhatsAppVerification.Application\\ApiWhatsAppVerification.Application.csproj|d:\\projetos\\apiwhatsappverification\\src\\apiwhatsappverification.application\\usecases\\updateuserusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D0E94EA-A562-4F16-A531-26C3D2E63C77}|src\\ApiWhatsAppVerification.Application\\ApiWhatsAppVerification.Application.csproj|solutionrelative:src\\apiwhatsappverification.application\\usecases\\updateuserusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{851F0C06-49AD-4656-9EDF-AA0C91EBD7A3}|tests\\ApiWhatsAppVerification.Tests\\ApiWhatsAppVerification.Tests.csproj|d:\\projetos\\apiwhatsappverification\\tests\\apiwhatsappverification.tests\\application\\usecases\\checkwhatsappnumberusecasetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{851F0C06-49AD-4656-9EDF-AA0C91EBD7A3}|tests\\ApiWhatsAppVerification.Tests\\ApiWhatsAppVerification.Tests.csproj|solutionrelative:tests\\apiwhatsappverification.tests\\application\\usecases\\checkwhatsappnumberusecasetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7D0E94EA-A562-4F16-A531-26C3D2E63C77}|src\\ApiWhatsAppVerification.Application\\ApiWhatsAppVerification.Application.csproj|d:\\projetos\\apiwhatsappverification\\src\\apiwhatsappverification.application\\usecases\\registeruserusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D0E94EA-A562-4F16-A531-26C3D2E63C77}|src\\ApiWhatsAppVerification.Application\\ApiWhatsAppVerification.Application.csproj|solutionrelative:src\\apiwhatsappverification.application\\usecases\\registeruserusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{ED215385-0021-4E1B-97DF-9866863FF5DA}|src\\ApiWhatsAppVerification.Infrastructure\\ApiWhatsAppVerification.Infrastructure.csproj|d:\\projetos\\apiwhatsappverification\\src\\apiwhatsappverification.infrastructure\\repositories\\phonenumberverificationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ED215385-0021-4E1B-97DF-9866863FF5DA}|src\\ApiWhatsAppVerification.Infrastructure\\ApiWhatsAppVerification.Infrastructure.csproj|solutionrelative:src\\apiwhatsappverification.infrastructure\\repositories\\phonenumberverificationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ED215385-0021-4E1B-97DF-9866863FF5DA}|src\\ApiWhatsAppVerification.Infrastructure\\ApiWhatsAppVerification.Infrastructure.csproj|d:\\projetos\\apiwhatsappverification\\src\\apiwhatsappverification.infrastructure\\data\\mongodbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ED215385-0021-4E1B-97DF-9866863FF5DA}|src\\ApiWhatsAppVerification.Infrastructure\\ApiWhatsAppVerification.Infrastructure.csproj|solutionrelative:src\\apiwhatsappverification.infrastructure\\data\\mongodbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3C483EAB-6103-4F0B-B219-8C368A4BC4FC}|src\\ApiWhatsAppVerification.WebApi\\ApiWhatsAppVerification.WebApi.csproj|d:\\projetos\\apiwhatsappverification\\src\\apiwhatsappverification.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3C483EAB-6103-4F0B-B219-8C368A4BC4FC}|src\\ApiWhatsAppVerification.WebApi\\ApiWhatsAppVerification.WebApi.csproj|solutionrelative:src\\apiwhatsappverification.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ED215385-0021-4E1B-97DF-9866863FF5DA}|src\\ApiWhatsAppVerification.Infrastructure\\ApiWhatsAppVerification.Infrastructure.csproj|d:\\projetos\\apiwhatsappverification\\src\\apiwhatsappverification.infrastructure\\apiwhatsappverification.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{ED215385-0021-4E1B-97DF-9866863FF5DA}|src\\ApiWhatsAppVerification.Infrastructure\\ApiWhatsAppVerification.Infrastructure.csproj|solutionrelative:src\\apiwhatsappverification.infrastructure\\apiwhatsappverification.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{ED215385-0021-4E1B-97DF-9866863FF5DA}|src\\ApiWhatsAppVerification.Infrastructure\\ApiWhatsAppVerification.Infrastructure.csproj|d:\\projetos\\apiwhatsappverification\\src\\apiwhatsappverification.infrastructure\\ioc\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{ED215385-0021-4E1B-97DF-9866863FF5DA}|src\\ApiWhatsAppVerification.Infrastructure\\ApiWhatsAppVerification.Infrastructure.csproj|solutionrelative:src\\apiwhatsappverification.infrastructure\\ioc\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3C483EAB-6103-4F0B-B219-8C368A4BC4FC}|src\\ApiWhatsAppVerification.WebApi\\ApiWhatsAppVerification.WebApi.csproj|d:\\projetos\\apiwhatsappverification\\src\\apiwhatsappverification.webapi\\apiwhatsappverification.webapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{3C483EAB-6103-4F0B-B219-8C368A4BC4FC}|src\\ApiWhatsAppVerification.WebApi\\ApiWhatsAppVerification.WebApi.csproj|solutionrelative:src\\apiwhatsappverification.webapi\\apiwhatsappverification.webapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7D0E94EA-A562-4F16-A531-26C3D2E63C77}|src\\ApiWhatsAppVerification.Application\\ApiWhatsAppVerification.Application.csproj|d:\\projetos\\apiwhatsappverification\\src\\apiwhatsappverification.application\\usecases\\checkwhatsappnumberusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D0E94EA-A562-4F16-A531-26C3D2E63C77}|src\\ApiWhatsAppVerification.Application\\ApiWhatsAppVerification.Application.csproj|solutionrelative:src\\apiwhatsappverification.application\\usecases\\checkwhatsappnumberusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{7D0E94EA-A562-4F16-A531-26C3D2E63C77}|src\\ApiWhatsAppVerification.Application\\ApiWhatsAppVerification.Application.csproj|d:\\projetos\\apiwhatsappverification\\src\\apiwhatsappverification.application\\interfaces\\services\\iwhatsappverifier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D0E94EA-A562-4F16-A531-26C3D2E63C77}|src\\ApiWhatsAppVerification.Application\\ApiWhatsAppVerification.Application.csproj|solutionrelative:src\\apiwhatsappverification.application\\interfaces\\services\\iwhatsappverifier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7D0E94EA-A562-4F16-A531-26C3D2E63C77}|src\\ApiWhatsAppVerification.Application\\ApiWhatsAppVerification.Application.csproj|d:\\projetos\\apiwhatsappverification\\src\\apiwhatsappverification.application\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D0E94EA-A562-4F16-A531-26C3D2E63C77}|src\\ApiWhatsAppVerification.Application\\ApiWhatsAppVerification.Application.csproj|solutionrelative:src\\apiwhatsappverification.application\\services\\tokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{7D0E94EA-A562-4F16-A531-26C3D2E63C77}|src\\ApiWhatsAppVerification.Application\\ApiWhatsAppVerification.Application.csproj|d:\\projetos\\apiwhatsappverification\\src\\apiwhatsappverification.application\\services\\whatsappverifier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7D0E94EA-A562-4F16-A531-26C3D2E63C77}|src\\ApiWhatsAppVerification.Application\\ApiWhatsAppVerification.Application.csproj|solutionrelative:src\\apiwhatsappverification.application\\services\\whatsappverifier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{7D0E94EA-A562-4F16-A531-26C3D2E63C77}|src\\ApiWhatsAppVerification.Application\\ApiWhatsAppVerification.Application.csproj|d:\\projetos\\apiwhatsappverification\\src\\apiwhatsappverification.application\\interfaces\\repositories\\iphonenumberverificationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{7D0E94EA-A562-4F16-A531-26C3D2E63C77}|src\\ApiWhatsAppVerification.Application\\ApiWhatsAppVerification.Application.csproj|solutionrelative:src\\apiwhatsappverification.application\\interfaces\\repositories\\iphonenumberverificationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{7D0E94EA-A562-4F16-A531-26C3D2E63C77}|src\\ApiWhatsAppVerification.Application\\ApiWhatsAppVerification.Application.csproj|d:\\projetos\\apiwhatsappverification\\src\\apiwhatsappverification.application\\interfaces\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D0E94EA-A562-4F16-A531-26C3D2E63C77}|src\\ApiWhatsAppVerification.Application\\ApiWhatsAppVerification.Application.csproj|solutionrelative:src\\apiwhatsappverification.application\\interfaces\\repositories\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C483EAB-6103-4F0B-B219-8C368A4BC4FC}|src\\ApiWhatsAppVerification.WebApi\\ApiWhatsAppVerification.WebApi.csproj|d:\\projetos\\apiwhatsappverification\\src\\apiwhatsappverification.webapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C483EAB-6103-4F0B-B219-8C368A4BC4FC}|src\\ApiWhatsAppVerification.WebApi\\ApiWhatsAppVerification.WebApi.csproj|solutionrelative:src\\apiwhatsappverification.webapi\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D0E94EA-A562-4F16-A531-26C3D2E63C77}|src\\ApiWhatsAppVerification.Application\\ApiWhatsAppVerification.Application.csproj|d:\\projetos\\apiwhatsappverification\\src\\apiwhatsappverification.application\\usecases\\loginuserusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D0E94EA-A562-4F16-A531-26C3D2E63C77}|src\\ApiWhatsAppVerification.Application\\ApiWhatsAppVerification.Application.csproj|solutionrelative:src\\apiwhatsappverification.application\\usecases\\loginuserusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D0E94EA-A562-4F16-A531-26C3D2E63C77}|src\\ApiWhatsAppVerification.Application\\ApiWhatsAppVerification.Application.csproj|d:\\projetos\\apiwhatsappverification\\src\\apiwhatsappverification.application\\usecases\\deleteuserusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D0E94EA-A562-4F16-A531-26C3D2E63C77}|src\\ApiWhatsAppVerification.Application\\ApiWhatsAppVerification.Application.csproj|solutionrelative:src\\apiwhatsappverification.application\\usecases\\deleteuserusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D0E94EA-A562-4F16-A531-26C3D2E63C77}|src\\ApiWhatsAppVerification.Application\\ApiWhatsAppVerification.Application.csproj|d:\\projetos\\apiwhatsappverification\\src\\apiwhatsappverification.application\\interfaces\\services\\itokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D0E94EA-A562-4F16-A531-26C3D2E63C77}|src\\ApiWhatsAppVerification.Application\\ApiWhatsAppVerification.Application.csproj|solutionrelative:src\\apiwhatsappverification.application\\interfaces\\services\\itokenservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C483EAB-6103-4F0B-B219-8C368A4BC4FC}|src\\ApiWhatsAppVerification.WebApi\\ApiWhatsAppVerification.WebApi.csproj|d:\\projetos\\apiwhatsappverification\\src\\apiwhatsappverification.webapi\\controllers\\phoneverificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C483EAB-6103-4F0B-B219-8C368A4BC4FC}|src\\ApiWhatsAppVerification.WebApi\\ApiWhatsAppVerification.WebApi.csproj|solutionrelative:src\\apiwhatsappverification.webapi\\controllers\\phoneverificationcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D57909A6-2D11-4C7A-B091-CC9E4057840A}|src\\ApiWhatsAppVerification.Domain\\ApiWhatsAppVerification.Domain.csproj|d:\\projetos\\apiwhatsappverification\\src\\apiwhatsappverification.domain\\entities\\phonenumberverification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D57909A6-2D11-4C7A-B091-CC9E4057840A}|src\\ApiWhatsAppVerification.Domain\\ApiWhatsAppVerification.Domain.csproj|solutionrelative:src\\apiwhatsappverification.domain\\entities\\phonenumberverification.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D57909A6-2D11-4C7A-B091-CC9E4057840A}|src\\ApiWhatsAppVerification.Domain\\ApiWhatsAppVerification.Domain.csproj|d:\\projetos\\apiwhatsappverification\\src\\apiwhatsappverification.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D57909A6-2D11-4C7A-B091-CC9E4057840A}|src\\ApiWhatsAppVerification.Domain\\ApiWhatsAppVerification.Domain.csproj|solutionrelative:src\\apiwhatsappverification.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D57909A6-2D11-4C7A-B091-CC9E4057840A}|src\\ApiWhatsAppVerification.Domain\\ApiWhatsAppVerification.Domain.csproj|d:\\projetos\\apiwhatsappverification\\src\\apiwhatsappverification.domain\\dtos\\registerrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D57909A6-2D11-4C7A-B091-CC9E4057840A}|src\\ApiWhatsAppVerification.Domain\\ApiWhatsAppVerification.Domain.csproj|solutionrelative:src\\apiwhatsappverification.domain\\dtos\\registerrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D57909A6-2D11-4C7A-B091-CC9E4057840A}|src\\ApiWhatsAppVerification.Domain\\ApiWhatsAppVerification.Domain.csproj|d:\\projetos\\apiwhatsappverification\\src\\apiwhatsappverification.domain\\dtos\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D57909A6-2D11-4C7A-B091-CC9E4057840A}|src\\ApiWhatsAppVerification.Domain\\ApiWhatsAppVerification.Domain.csproj|solutionrelative:src\\apiwhatsappverification.domain\\dtos\\loginrequest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D0E94EA-A562-4F16-A531-26C3D2E63C77}|src\\ApiWhatsAppVerification.Application\\ApiWhatsAppVerification.Application.csproj|d:\\projetos\\apiwhatsappverification\\src\\apiwhatsappverification.application\\usecases\\checkwhatsappnumberusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D0E94EA-A562-4F16-A531-26C3D2E63C77}|src\\ApiWhatsAppVerification.Application\\ApiWhatsAppVerification.Application.csproj|solutionrelative:src\\apiwhatsappverification.application\\usecases\\checkwhatsappnumberusecase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED215385-0021-4E1B-97DF-9866863FF5DA}|src\\ApiWhatsAppVerification.Infrastructure\\ApiWhatsAppVerification.Infrastructure.csproj|d:\\projetos\\apiwhatsappverification\\src\\apiwhatsappverification.infrastructure\\repositories\\phonenumberverificationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED215385-0021-4E1B-97DF-9866863FF5DA}|src\\ApiWhatsAppVerification.Infrastructure\\ApiWhatsAppVerification.Infrastructure.csproj|solutionrelative:src\\apiwhatsappverification.infrastructure\\repositories\\phonenumberverificationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C483EAB-6103-4F0B-B219-8C368A4BC4FC}|src\\ApiWhatsAppVerification.WebApi\\ApiWhatsAppVerification.WebApi.csproj|d:\\projetos\\apiwhatsappverification\\src\\apiwhatsappverification.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3C483EAB-6103-4F0B-B219-8C368A4BC4FC}|src\\ApiWhatsAppVerification.WebApi\\ApiWhatsAppVerification.WebApi.csproj|solutionrelative:src\\apiwhatsappverification.webapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED215385-0021-4E1B-97DF-9866863FF5DA}|src\\ApiWhatsAppVerification.Infrastructure\\ApiWhatsAppVerification.Infrastructure.csproj|d:\\projetos\\apiwhatsappverification\\src\\apiwhatsappverification.infrastructure\\ioc\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED215385-0021-4E1B-97DF-9866863FF5DA}|src\\ApiWhatsAppVerification.Infrastructure\\ApiWhatsAppVerification.Infrastructure.csproj|solutionrelative:src\\apiwhatsappverification.infrastructure\\ioc\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C483EAB-6103-4F0B-B219-8C368A4BC4FC}|src\\ApiWhatsAppVerification.WebApi\\ApiWhatsAppVerification.WebApi.csproj|d:\\projetos\\apiwhatsappverification\\src\\apiwhatsappverification.webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{3C483EAB-6103-4F0B-B219-8C368A4BC4FC}|src\\ApiWhatsAppVerification.WebApi\\ApiWhatsAppVerification.WebApi.csproj|solutionrelative:src\\apiwhatsappverification.webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C483EAB-6103-4F0B-B219-8C368A4BC4FC}|src\\ApiWhatsAppVerification.WebApi\\ApiWhatsAppVerification.WebApi.csproj|d:\\projetos\\apiwhatsappverification\\src\\apiwhatsappverification.webapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{3C483EAB-6103-4F0B-B219-8C368A4BC4FC}|src\\ApiWhatsAppVerification.WebApi\\ApiWhatsAppVerification.WebApi.csproj|solutionrelative:src\\apiwhatsappverification.webapi\\appsettings.development.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D0E94EA-A562-4F16-A531-26C3D2E63C77}|src\\ApiWhatsAppVerification.Application\\ApiWhatsAppVerification.Application.csproj|d:\\projetos\\apiwhatsappverification\\src\\apiwhatsappverification.application\\interfaces\\services\\iwhatsappverifier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D0E94EA-A562-4F16-A531-26C3D2E63C77}|src\\ApiWhatsAppVerification.Application\\ApiWhatsAppVerification.Application.csproj|solutionrelative:src\\apiwhatsappverification.application\\interfaces\\services\\iwhatsappverifier.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C483EAB-6103-4F0B-B219-8C368A4BC4FC}|src\\ApiWhatsAppVerification.WebApi\\ApiWhatsAppVerification.WebApi.csproj|d:\\projetos\\apiwhatsappverification\\src\\apiwhatsappverification.webapi\\apiwhatsappverification.webapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{3C483EAB-6103-4F0B-B219-8C368A4BC4FC}|src\\ApiWhatsAppVerification.WebApi\\ApiWhatsAppVerification.WebApi.csproj|solutionrelative:src\\apiwhatsappverification.webapi\\apiwhatsappverification.webapi.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED215385-0021-4E1B-97DF-9866863FF5DA}|src\\ApiWhatsAppVerification.Infrastructure\\ApiWhatsAppVerification.Infrastructure.csproj|d:\\projetos\\apiwhatsappverification\\src\\apiwhatsappverification.infrastructure\\data\\mongodbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{ED215385-0021-4E1B-97DF-9866863FF5DA}|src\\ApiWhatsAppVerification.Infrastructure\\ApiWhatsAppVerification.Infrastructure.csproj|solutionrelative:src\\apiwhatsappverification.infrastructure\\data\\mongodbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{851F0C06-49AD-4656-9EDF-AA0C91EBD7A3}|tests\\ApiWhatsAppVerification.Tests\\ApiWhatsAppVerification.Tests.csproj|d:\\projetos\\apiwhatsappverification\\tests\\apiwhatsappverification.tests\\application\\usecases\\checkwhatsappnumberusecasetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{851F0C06-49AD-4656-9EDF-AA0C91EBD7A3}|tests\\ApiWhatsAppVerification.Tests\\ApiWhatsAppVerification.Tests.csproj|solutionrelative:tests\\apiwhatsappverification.tests\\application\\usecases\\checkwhatsappnumberusecasetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ED215385-0021-4E1B-97DF-9866863FF5DA}|src\\ApiWhatsAppVerification.Infrastructure\\ApiWhatsAppVerification.Infrastructure.csproj|d:\\projetos\\apiwhatsappverification\\src\\apiwhatsappverification.infrastructure\\apiwhatsappverification.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{ED215385-0021-4E1B-97DF-9866863FF5DA}|src\\ApiWhatsAppVerification.Infrastructure\\ApiWhatsAppVerification.Infrastructure.csproj|solutionrelative:src\\apiwhatsappverification.infrastructure\\apiwhatsappverification.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7D0E94EA-A562-4F16-A531-26C3D2E63C77}|src\\ApiWhatsAppVerification.Application\\ApiWhatsAppVerification.Application.csproj|d:\\projetos\\apiwhatsappverification\\src\\apiwhatsappverification.application\\interfaces\\repositories\\iphonenumberverificationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7D0E94EA-A562-4F16-A531-26C3D2E63C77}|src\\ApiWhatsAppVerification.Application\\ApiWhatsAppVerification.Application.csproj|solutionrelative:src\\apiwhatsappverification.application\\interfaces\\repositories\\iphonenumberverificationrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -66,128 +118,297 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CheckWhatsAppNumberUseCaseTests.cs",
-              "DocumentMoniker": "D:\\PROJETOS\\ApiWhatsAppVerification\\tests\\ApiWhatsAppVerification.Tests\\Application\\UseCases\\CheckWhatsAppNumberUseCaseTests.cs",
-              "RelativeDocumentMoniker": "tests\\ApiWhatsAppVerification.Tests\\Application\\UseCases\\CheckWhatsAppNumberUseCaseTests.cs",
-              "ToolTip": "D:\\PROJETOS\\ApiWhatsAppVerification\\tests\\ApiWhatsAppVerification.Tests\\Application\\UseCases\\CheckWhatsAppNumberUseCaseTests.cs",
-              "RelativeToolTip": "tests\\ApiWhatsAppVerification.Tests\\Application\\UseCases\\CheckWhatsAppNumberUseCaseTests.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-07T22:37:28.612Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "ApiWhatsAppVerification.Infrastructure",
-              "DocumentMoniker": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Infrastructure\\ApiWhatsAppVerification.Infrastructure.csproj",
-              "RelativeDocumentMoniker": "src\\ApiWhatsAppVerification.Infrastructure\\ApiWhatsAppVerification.Infrastructure.csproj",
-              "ToolTip": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Infrastructure\\ApiWhatsAppVerification.Infrastructure.csproj",
-              "RelativeToolTip": "src\\ApiWhatsAppVerification.Infrastructure\\ApiWhatsAppVerification.Infrastructure.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABbAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-01-07T22:21:12.051Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "DependencyInjection.cs",
-              "DocumentMoniker": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Infrastructure\\Ioc\\DependencyInjection.cs",
-              "RelativeDocumentMoniker": "src\\ApiWhatsAppVerification.Infrastructure\\Ioc\\DependencyInjection.cs",
-              "ToolTip": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Infrastructure\\Ioc\\DependencyInjection.cs",
-              "RelativeToolTip": "src\\ApiWhatsAppVerification.Infrastructure\\Ioc\\DependencyInjection.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAApAAAAAAAAAA==",
+              "Title": "LoginUserUseCase.cs",
+              "DocumentMoniker": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Application\\UseCases\\LoginUserUseCase.cs",
+              "RelativeDocumentMoniker": "src\\ApiWhatsAppVerification.Application\\UseCases\\LoginUserUseCase.cs",
+              "ToolTip": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Application\\UseCases\\LoginUserUseCase.cs",
+              "RelativeToolTip": "src\\ApiWhatsAppVerification.Application\\UseCases\\LoginUserUseCase.cs",
+              "ViewState": "AgIAAAgAAAAAAAAAAAA5wCoAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-07T22:17:28.384Z",
+              "WhenOpened": "2025-01-08T18:48:54.809Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "MongoDbContext.cs",
-              "DocumentMoniker": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Infrastructure\\Data\\MongoDbContext.cs",
-              "RelativeDocumentMoniker": "src\\ApiWhatsAppVerification.Infrastructure\\Data\\MongoDbContext.cs",
-              "ToolTip": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Infrastructure\\Data\\MongoDbContext.cs",
-              "RelativeToolTip": "src\\ApiWhatsAppVerification.Infrastructure\\Data\\MongoDbContext.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 8,
+              "Title": "DeleteUserUseCase.cs",
+              "DocumentMoniker": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Application\\UseCases\\DeleteUserUseCase.cs",
+              "RelativeDocumentMoniker": "src\\ApiWhatsAppVerification.Application\\UseCases\\DeleteUserUseCase.cs",
+              "ToolTip": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Application\\UseCases\\DeleteUserUseCase.cs",
+              "RelativeToolTip": "src\\ApiWhatsAppVerification.Application\\UseCases\\DeleteUserUseCase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvxkAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-07T21:10:33.938Z",
+              "WhenOpened": "2025-01-08T19:34:40.352Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.WebApi\\Program.cs",
-              "RelativeDocumentMoniker": "src\\ApiWhatsAppVerification.WebApi\\Program.cs",
-              "ToolTip": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.WebApi\\Program.cs",
-              "RelativeToolTip": "src\\ApiWhatsAppVerification.WebApi\\Program.cs",
-              "ViewState": "AgIAADAAAAAAAAAAAAAAAAMAAAASAAAAAAAAAA==",
+              "DocumentIndex": 9,
+              "Title": "ITokenService.cs",
+              "DocumentMoniker": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Application\\Interfaces\\Services\\ITokenService.cs",
+              "RelativeDocumentMoniker": "src\\ApiWhatsAppVerification.Application\\Interfaces\\Services\\ITokenService.cs",
+              "ToolTip": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Application\\Interfaces\\Services\\ITokenService.cs",
+              "RelativeToolTip": "src\\ApiWhatsAppVerification.Application\\Interfaces\\Services\\ITokenService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-07T21:06:17.353Z",
+              "WhenOpened": "2025-01-08T18:54:38.2Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "AuthController.cs",
-              "DocumentMoniker": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.WebApi\\Controllers\\AuthController.cs",
-              "RelativeDocumentMoniker": "src\\ApiWhatsAppVerification.WebApi\\Controllers\\AuthController.cs",
-              "ToolTip": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.WebApi\\Controllers\\AuthController.cs",
-              "RelativeToolTip": "src\\ApiWhatsAppVerification.WebApi\\Controllers\\AuthController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAA7AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-07T21:03:02.689Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 10,
               "Title": "PhoneVerificationController.cs",
               "DocumentMoniker": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.WebApi\\Controllers\\PhoneVerificationController.cs",
               "RelativeDocumentMoniker": "src\\ApiWhatsAppVerification.WebApi\\Controllers\\PhoneVerificationController.cs",
               "ToolTip": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.WebApi\\Controllers\\PhoneVerificationController.cs",
               "RelativeToolTip": "src\\ApiWhatsAppVerification.WebApi\\Controllers\\PhoneVerificationController.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABcAAABEAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-07T21:05:46.587Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ApiWhatsAppVerification.WebApi",
-              "DocumentMoniker": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.WebApi\\ApiWhatsAppVerification.WebApi.csproj",
-              "RelativeDocumentMoniker": "src\\ApiWhatsAppVerification.WebApi\\ApiWhatsAppVerification.WebApi.csproj",
-              "ToolTip": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.WebApi\\ApiWhatsAppVerification.WebApi.csproj",
-              "RelativeToolTip": "src\\ApiWhatsAppVerification.WebApi\\ApiWhatsAppVerification.WebApi.csproj",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-01-07T22:30:28.233Z",
+              "DocumentIndex": 6,
+              "Title": "AuthController.cs",
+              "DocumentMoniker": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.WebApi\\Controllers\\AuthController.cs",
+              "RelativeDocumentMoniker": "src\\ApiWhatsAppVerification.WebApi\\Controllers\\AuthController.cs",
+              "ToolTip": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.WebApi\\Controllers\\AuthController.cs",
+              "RelativeToolTip": "src\\ApiWhatsAppVerification.WebApi\\Controllers\\AuthController.cs",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAAAB8AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-07T21:03:02.689Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "IUserRepository.cs",
+              "DocumentMoniker": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Application\\Interfaces\\Repositories\\IUserRepository.cs",
+              "RelativeDocumentMoniker": "src\\ApiWhatsAppVerification.Application\\Interfaces\\Repositories\\IUserRepository.cs",
+              "ToolTip": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Application\\Interfaces\\Repositories\\IUserRepository.cs",
+              "RelativeToolTip": "src\\ApiWhatsAppVerification.Application\\Interfaces\\Repositories\\IUserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvxEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-08T18:25:00.756Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "WhatsAppVerifier.cs",
+              "DocumentMoniker": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Application\\Services\\WhatsAppVerifier.cs",
+              "RelativeDocumentMoniker": "src\\ApiWhatsAppVerification.Application\\Services\\WhatsAppVerifier.cs",
+              "ToolTip": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Application\\Services\\WhatsAppVerifier.cs",
+              "RelativeToolTip": "src\\ApiWhatsAppVerification.Application\\Services\\WhatsAppVerifier.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-07T21:12:21.221Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "TokenService.cs",
+              "DocumentMoniker": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Application\\Services\\TokenService.cs",
+              "RelativeDocumentMoniker": "src\\ApiWhatsAppVerification.Application\\Services\\TokenService.cs",
+              "ToolTip": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Application\\Services\\TokenService.cs",
+              "RelativeToolTip": "src\\ApiWhatsAppVerification.Application\\Services\\TokenService.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACgAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-08T18:53:05.41Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RegisterUserUseCase.cs",
+              "DocumentMoniker": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Application\\UseCases\\RegisterUserUseCase.cs",
+              "RelativeDocumentMoniker": "src\\ApiWhatsAppVerification.Application\\UseCases\\RegisterUserUseCase.cs",
+              "ToolTip": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Application\\UseCases\\RegisterUserUseCase.cs",
+              "RelativeToolTip": "src\\ApiWhatsAppVerification.Application\\UseCases\\RegisterUserUseCase.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAqwBMAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-08T18:46:46.286Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UpdateUserUseCase.cs",
+              "DocumentMoniker": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Application\\UseCases\\UpdateUserUseCase.cs",
+              "RelativeDocumentMoniker": "src\\ApiWhatsAppVerification.Application\\UseCases\\UpdateUserUseCase.cs",
+              "ToolTip": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Application\\UseCases\\UpdateUserUseCase.cs",
+              "RelativeToolTip": "src\\ApiWhatsAppVerification.Application\\UseCases\\UpdateUserUseCase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-08T19:31:35.453Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserRepository.cs",
+              "DocumentMoniker": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Infrastructure\\Repositories\\UserRepository.cs",
+              "RelativeDocumentMoniker": "src\\ApiWhatsAppVerification.Infrastructure\\Repositories\\UserRepository.cs",
+              "ToolTip": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Infrastructure\\Repositories\\UserRepository.cs",
+              "RelativeToolTip": "src\\ApiWhatsAppVerification.Infrastructure\\Repositories\\UserRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACoAAABFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-08T18:25:29.813Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "PhoneNumberVerification.cs",
+              "DocumentMoniker": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Domain\\Entities\\PhoneNumberVerification.cs",
+              "RelativeDocumentMoniker": "src\\ApiWhatsAppVerification.Domain\\Entities\\PhoneNumberVerification.cs",
+              "ToolTip": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Domain\\Entities\\PhoneNumberVerification.cs",
+              "RelativeToolTip": "src\\ApiWhatsAppVerification.Domain\\Entities\\PhoneNumberVerification.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-07T21:07:25.639Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "RegisterRequest.cs",
+              "DocumentMoniker": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Domain\\Dtos\\RegisterRequest.cs",
+              "RelativeDocumentMoniker": "src\\ApiWhatsAppVerification.Domain\\Dtos\\RegisterRequest.cs",
+              "ToolTip": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Domain\\Dtos\\RegisterRequest.cs",
+              "RelativeToolTip": "src\\ApiWhatsAppVerification.Domain\\Dtos\\RegisterRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvw8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-08T18:39:30.679Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "CheckWhatsAppNumberUseCase.cs",
+              "DocumentMoniker": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Application\\UseCases\\CheckWhatsAppNumberUseCase.cs",
+              "RelativeDocumentMoniker": "src\\ApiWhatsAppVerification.Application\\UseCases\\CheckWhatsAppNumberUseCase.cs",
+              "ToolTip": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Application\\UseCases\\CheckWhatsAppNumberUseCase.cs",
+              "RelativeToolTip": "src\\ApiWhatsAppVerification.Application\\UseCases\\CheckWhatsAppNumberUseCase.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAswC8AAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-07T21:09:49.812Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "LoginRequest.cs",
+              "DocumentMoniker": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Domain\\Dtos\\LoginRequest.cs",
+              "RelativeDocumentMoniker": "src\\ApiWhatsAppVerification.Domain\\Dtos\\LoginRequest.cs",
+              "ToolTip": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Domain\\Dtos\\LoginRequest.cs",
+              "RelativeToolTip": "src\\ApiWhatsAppVerification.Domain\\Dtos\\LoginRequest.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwsAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-08T18:03:54.876Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "User.cs",
+              "DocumentMoniker": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Domain\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "src\\ApiWhatsAppVerification.Domain\\Entities\\User.cs",
+              "ToolTip": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Domain\\Entities\\User.cs",
+              "RelativeToolTip": "src\\ApiWhatsAppVerification.Domain\\Entities\\User.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-08T18:22:02.328Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.WebApi\\Program.cs",
+              "RelativeDocumentMoniker": "src\\ApiWhatsAppVerification.WebApi\\Program.cs",
+              "ToolTip": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.WebApi\\Program.cs",
+              "RelativeToolTip": "src\\ApiWhatsAppVerification.WebApi\\Program.cs",
+              "ViewState": "AgIAAEIAAAAAAAAAAAAAAAoAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-07T21:06:17.353Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "PhoneNumberVerificationRepository.cs",
               "DocumentMoniker": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Infrastructure\\Repositories\\PhoneNumberVerificationRepository.cs",
               "RelativeDocumentMoniker": "src\\ApiWhatsAppVerification.Infrastructure\\Repositories\\PhoneNumberVerificationRepository.cs",
               "ToolTip": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Infrastructure\\Repositories\\PhoneNumberVerificationRepository.cs",
               "RelativeToolTip": "src\\ApiWhatsAppVerification.Infrastructure\\Repositories\\PhoneNumberVerificationRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-07T21:11:22.787Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 18,
+              "Title": "DependencyInjection.cs",
+              "DocumentMoniker": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Infrastructure\\Ioc\\DependencyInjection.cs",
+              "RelativeDocumentMoniker": "src\\ApiWhatsAppVerification.Infrastructure\\Ioc\\DependencyInjection.cs",
+              "ToolTip": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Infrastructure\\Ioc\\DependencyInjection.cs",
+              "RelativeToolTip": "src\\ApiWhatsAppVerification.Infrastructure\\Ioc\\DependencyInjection.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-07T22:17:28.384Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "MongoDbContext.cs",
+              "DocumentMoniker": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Infrastructure\\Data\\MongoDbContext.cs",
+              "RelativeDocumentMoniker": "src\\ApiWhatsAppVerification.Infrastructure\\Data\\MongoDbContext.cs",
+              "ToolTip": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Infrastructure\\Data\\MongoDbContext.cs",
+              "RelativeToolTip": "src\\ApiWhatsAppVerification.Infrastructure\\Data\\MongoDbContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-07T21:10:33.938Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.WebApi\\appsettings.json",
+              "RelativeDocumentMoniker": "src\\ApiWhatsAppVerification.WebApi\\appsettings.json",
+              "ToolTip": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.WebApi\\appsettings.json",
+              "RelativeToolTip": "src\\ApiWhatsAppVerification.WebApi\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-07T22:45:10.598Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "appsettings.Development.json",
+              "DocumentMoniker": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.WebApi\\appsettings.Development.json",
+              "RelativeDocumentMoniker": "src\\ApiWhatsAppVerification.WebApi\\appsettings.Development.json",
+              "ToolTip": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.WebApi\\appsettings.Development.json",
+              "RelativeToolTip": "src\\ApiWhatsAppVerification.WebApi\\appsettings.Development.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-01-08T19:17:08.712Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
               "Title": "IWhatsAppVerifier.cs",
               "DocumentMoniker": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Application\\Interfaces\\Services\\IWhatsAppVerifier.cs",
               "RelativeDocumentMoniker": "src\\ApiWhatsAppVerification.Application\\Interfaces\\Services\\IWhatsAppVerifier.cs",
@@ -200,33 +421,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "WhatsAppVerifier.cs",
-              "DocumentMoniker": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Application\\Services\\WhatsAppVerifier.cs",
-              "RelativeDocumentMoniker": "src\\ApiWhatsAppVerification.Application\\Services\\WhatsAppVerifier.cs",
-              "ToolTip": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Application\\Services\\WhatsAppVerifier.cs",
-              "RelativeToolTip": "src\\ApiWhatsAppVerification.Application\\Services\\WhatsAppVerifier.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-07T21:12:21.221Z",
+              "DocumentIndex": 22,
+              "Title": "ApiWhatsAppVerification.WebApi.csproj",
+              "DocumentMoniker": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.WebApi\\ApiWhatsAppVerification.WebApi.csproj",
+              "RelativeDocumentMoniker": "src\\ApiWhatsAppVerification.WebApi\\ApiWhatsAppVerification.WebApi.csproj",
+              "ToolTip": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.WebApi\\ApiWhatsAppVerification.WebApi.csproj",
+              "RelativeToolTip": "src\\ApiWhatsAppVerification.WebApi\\ApiWhatsAppVerification.WebApi.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-01-07T22:30:28.233Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "CheckWhatsAppNumberUseCase.cs",
-              "DocumentMoniker": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Application\\UseCases\\CheckWhatsAppNumberUseCase.cs",
-              "RelativeDocumentMoniker": "src\\ApiWhatsAppVerification.Application\\UseCases\\CheckWhatsAppNumberUseCase.cs",
-              "ToolTip": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Application\\UseCases\\CheckWhatsAppNumberUseCase.cs",
-              "RelativeToolTip": "src\\ApiWhatsAppVerification.Application\\UseCases\\CheckWhatsAppNumberUseCase.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-07T21:09:49.812Z",
+              "DocumentIndex": 25,
+              "Title": "ApiWhatsAppVerification.Infrastructure.csproj",
+              "DocumentMoniker": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Infrastructure\\ApiWhatsAppVerification.Infrastructure.csproj",
+              "RelativeDocumentMoniker": "src\\ApiWhatsAppVerification.Infrastructure\\ApiWhatsAppVerification.Infrastructure.csproj",
+              "ToolTip": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Infrastructure\\ApiWhatsAppVerification.Infrastructure.csproj",
+              "RelativeToolTip": "src\\ApiWhatsAppVerification.Infrastructure\\ApiWhatsAppVerification.Infrastructure.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAABbAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-01-07T22:21:12.051Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 24,
+              "Title": "CheckWhatsAppNumberUseCaseTests.cs",
+              "DocumentMoniker": "D:\\PROJETOS\\ApiWhatsAppVerification\\tests\\ApiWhatsAppVerification.Tests\\Application\\UseCases\\CheckWhatsAppNumberUseCaseTests.cs",
+              "RelativeDocumentMoniker": "tests\\ApiWhatsAppVerification.Tests\\Application\\UseCases\\CheckWhatsAppNumberUseCaseTests.cs",
+              "ToolTip": "D:\\PROJETOS\\ApiWhatsAppVerification\\tests\\ApiWhatsAppVerification.Tests\\Application\\UseCases\\CheckWhatsAppNumberUseCaseTests.cs",
+              "RelativeToolTip": "tests\\ApiWhatsAppVerification.Tests\\Application\\UseCases\\CheckWhatsAppNumberUseCaseTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-07T22:37:28.612Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
               "Title": "IPhoneNumberVerificationRepository.cs",
               "DocumentMoniker": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Application\\Interfaces\\Repositories\\IPhoneNumberVerificationRepository.cs",
               "RelativeDocumentMoniker": "src\\ApiWhatsAppVerification.Application\\Interfaces\\Repositories\\IPhoneNumberVerificationRepository.cs",
@@ -235,19 +469,6 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-07T21:08:29.203Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "PhoneNumberVerification.cs",
-              "DocumentMoniker": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Domain\\Entities\\PhoneNumberVerification.cs",
-              "RelativeDocumentMoniker": "src\\ApiWhatsAppVerification.Domain\\Entities\\PhoneNumberVerification.cs",
-              "ToolTip": "D:\\PROJETOS\\ApiWhatsAppVerification\\src\\ApiWhatsAppVerification.Domain\\Entities\\PhoneNumberVerification.cs",
-              "RelativeToolTip": "src\\ApiWhatsAppVerification.Domain\\Entities\\PhoneNumberVerification.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-07T21:07:25.639Z",
               "EditorCaption": ""
             }
           ]

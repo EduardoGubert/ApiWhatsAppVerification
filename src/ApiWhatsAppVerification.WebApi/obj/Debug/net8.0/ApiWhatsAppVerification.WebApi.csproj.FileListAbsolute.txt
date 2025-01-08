@@ -56,3 +56,4 @@ D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\obj\Debug
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\obj\Debug\net8.0\ApiWhatsAppVerification.WebApi.pdb
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\obj\Debug\net8.0\ApiWhatsAppVerification.WebApi.genruntimeconfig.cache
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\obj\Debug\net8.0\ref\ApiWhatsAppVerification.WebApi.dll
+D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\bin\Debug\net8.0\BCrypt.Net-Next.dll

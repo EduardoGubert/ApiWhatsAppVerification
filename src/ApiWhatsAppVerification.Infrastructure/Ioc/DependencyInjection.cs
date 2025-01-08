@@ -22,12 +22,18 @@ namespace ApiWhatsAppVerification.Infrastructure.Ioc
 
             // Repositórios
             services.AddScoped<IPhoneNumberVerificationRepository, PhoneNumberVerificationRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
 
             // Serviços
             services.AddScoped<IWhatsAppVerifier, WhatsAppVerifier>();
+            services.AddScoped<ITokenService, TokenService>();
 
             // UseCases
             services.AddScoped<CheckWhatsAppNumberUseCase>();
+            services.AddScoped<RegisterUserUseCase>();
+            services.AddScoped<UpdateUserUseCase>();
+            services.AddScoped<DeleteUserUseCase>();          
+            services.AddScoped<LoginUserUseCase>();
 
             return services;
         }

@@ -1,62 +1,90 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ApiWhatsAppVerification.Application.UseCases;
+using ApiWhatsAppVerification.Domain.Dtos;
+using ApiWhatsAppVerification.Domain.Entities;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
 
 [ApiController]
 [Route("api/[controller]")]
 public class AuthController : ControllerBase
 {
-    private readonly IConfiguration _configuration;
+    private readonly RegisterUserUseCase _registerUserUseCase;
+    private readonly UpdateUserUseCase _updateUserUseCase;
+    private readonly DeleteUserUseCase _deleteUserUseCase;
+    private readonly LoginUserUseCase _loginUserUseCase;
 
-    public AuthController(IConfiguration configuration)
+    public AuthController(
+             RegisterUserUseCase registerUserUseCase,
+             UpdateUserUseCase updateUserUseCase,
+             DeleteUserUseCase deleteUserUseCase,
+             LoginUserUseCase loginUserUseCase)
     {
-        _configuration = configuration;
+        _registerUserUseCase = registerUserUseCase;
+        _updateUserUseCase = updateUserUseCase;
+        _deleteUserUseCase = deleteUserUseCase;
+        _loginUserUseCase = loginUserUseCase;
+    }
+
+    [HttpPost("register")]
+    public async Task<IActionResult> Register([FromBody] RegisterRequest request)
+    {
+        // Validação básica
+        if (string.IsNullOrWhiteSpace(request.Username) ||
+            string.IsNullOrWhiteSpace(request.Password) ||
+            string.IsNullOrWhiteSpace(request.Email))
+        {
+            return BadRequest("Username, Password e Email são obrigatórios.");
+        }
+
+        var resultMessage = await _registerUserUseCase.ExecuteAsync(
+            request.Username,
+            request.Password,
+            request.Email);
+
+        if (resultMessage == "Usuário já existe.")
+        {
+            return BadRequest(resultMessage);
+        }
+
+        return Ok(resultMessage);
+    }
+
+    [HttpPut]
+    public async Task<IActionResult> UpdateUser([FromBody] User user)
+    {
+        var success = await _updateUserUseCase.ExecuteAsync(user);
+        if (!success)
+            return NotFound("Usuário não encontrado ou não atualizado.");
+
+        return Ok("Usuário atualizado com sucesso!");
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> DeleteUser(string id)
+    {
+        var success = await _deleteUserUseCase.ExecuteAsync(id);
+        if (!success)
+            return NotFound("Usuário não encontrado ou não excluído.");
+
+        return Ok("Usuário deletado com sucesso!");
     }
 
     [HttpPost("login")]
-    public IActionResult Login([FromBody] LoginRequest request)
+    public async Task<IActionResult> Login([FromBody] LoginRequest request)
     {
-        // Validar usuário e senha (fixo ou via DB)
-        if (request.Username == "admin" && request.Password == "admin123")
+        var token = await _loginUserUseCase.ExecuteAsync(
+            request.Username,
+            request.Password);
+
+        if (string.IsNullOrEmpty(token))
         {
-            var token = GenerateJwtToken(request.Username);
-            return Ok(new { token });
+            return Unauthorized("Credenciais inválidas.");
         }
-        return Unauthorized();
+
+        return Ok(new { token });
     }
 
-    private string GenerateJwtToken(string username)
-    {
-        var issuer = _configuration["Jwt:Issuer"];
-        var audience = _configuration["Jwt:Audience"];
-        var key = Encoding.UTF8.GetBytes(_configuration["Jwt:SecretKey"]);
 
-        var claims = new[]
-        {
-            new Claim(JwtRegisteredClaimNames.Sub, username),
-            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
-        };
+    
 
-        var creds = new SigningCredentials(
-            new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256
-        );
-
-        var token = new JwtSecurityToken(
-            issuer: issuer,
-            audience: audience,
-            claims: claims,
-            expires: DateTime.Now.AddHours(1),
-            signingCredentials: creds
-        );
-
-        return new JwtSecurityTokenHandler().WriteToken(token);
-    }
-
-    public class LoginRequest
-    {
-        public string Username { get; set; }
-        public string Password { get; set; }
-    }
 }

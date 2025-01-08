@@ -10,3 +10,4 @@ D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.Domain\obj\Debug
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.Domain\obj\Debug\net8.0\refint\ApiWhatsAppVerification.Domain.dll
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.Domain\obj\Debug\net8.0\ApiWhatsAppVerification.Domain.pdb
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.Domain\obj\Debug\net8.0\ref\ApiWhatsAppVerification.Domain.dll
+D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.Domain\obj\Debug\net8.0\ApiWhatsAppVerification.Domain.csproj.AssemblyReference.cache

@@ -15,5 +15,7 @@ namespace ApiWhatsAppVerification.Infrastructure.Data
 
         public IMongoCollection<PhoneNumberVerification> PhoneVerifications
             => _database.GetCollection<PhoneNumberVerification>("PhoneVerifications");
+
+        public IMongoCollection<User> Users => _database.GetCollection<User>("Users");
     }
 }
