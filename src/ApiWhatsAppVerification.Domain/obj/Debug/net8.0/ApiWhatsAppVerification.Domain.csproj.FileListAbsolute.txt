@@ -1,6 +1,7 @@
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.Domain\bin\Debug\net8.0\ApiWhatsAppVerification.Domain.deps.json
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.Domain\bin\Debug\net8.0\ApiWhatsAppVerification.Domain.dll
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.Domain\bin\Debug\net8.0\ApiWhatsAppVerification.Domain.pdb
+D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.Domain\obj\Debug\net8.0\ApiWhatsAppVerification.Domain.csproj.AssemblyReference.cache
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.Domain\obj\Debug\net8.0\ApiWhatsAppVerification.Domain.GeneratedMSBuildEditorConfig.editorconfig
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.Domain\obj\Debug\net8.0\ApiWhatsAppVerification.Domain.AssemblyInfoInputs.cache
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.Domain\obj\Debug\net8.0\ApiWhatsAppVerification.Domain.AssemblyInfo.cs
@@ -10,4 +11,3 @@ D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.Domain\obj\Debug
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.Domain\obj\Debug\net8.0\refint\ApiWhatsAppVerification.Domain.dll
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.Domain\obj\Debug\net8.0\ApiWhatsAppVerification.Domain.pdb
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.Domain\obj\Debug\net8.0\ref\ApiWhatsAppVerification.Domain.dll
-D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.Domain\obj\Debug\net8.0\ApiWhatsAppVerification.Domain.csproj.AssemblyReference.cache

@@ -25,6 +25,7 @@ namespace ApiWhatsAppVerification.Infrastructure.Ioc
             services.AddScoped<IUserRepository, UserRepository>();
 
             // Serviços
+            services.AddScoped<IEvolutionWhatsAppVerifier, EvolutionWhatsAppVerifier>();
             services.AddScoped<IWhatsAppVerifier, WhatsAppVerifier>();
             services.AddScoped<ITokenService, TokenService>();
 

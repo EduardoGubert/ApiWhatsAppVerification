@@ -1,3 +1,5 @@
+using ApiWhatsAppVerification.Application.Interfaces.Services;
+using ApiWhatsAppVerification.Application.Services;
 using ApiWhatsAppVerification.Infrastructure.Ioc;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -85,6 +87,8 @@ builder.Services.AddAuthorization();
 
 // 1.4) Habilita Controllers (MVC)
 builder.Services.AddControllers();
+
+builder.Services.AddHttpClient<IEvolutionWhatsAppVerifier, EvolutionWhatsAppVerifier>();
 
 var app = builder.Build();
 

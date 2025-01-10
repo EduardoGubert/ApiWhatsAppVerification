@@ -1,6 +1,7 @@
 ﻿using ApiWhatsAppVerification.Application.Interfaces.Repositories;
 using ApiWhatsAppVerification.Application.Interfaces.Services;
 using ApiWhatsAppVerification.Domain.Entities;
+using ApiWhatsAppVerification.Domain.Response;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,12 +14,15 @@ namespace ApiWhatsAppVerification.Application.UseCases
     {
         private readonly IPhoneNumberVerificationRepository _repository;
         private readonly IWhatsAppVerifier _whatsAppVerifier;
+        private readonly IEvolutionWhatsAppVerifier _evolutionWhatsAppVerifier;
 
         public CheckWhatsAppNumberUseCase(IPhoneNumberVerificationRepository repository,
-                                          IWhatsAppVerifier whatsAppVerifier)
+                                          IWhatsAppVerifier whatsAppVerifier,
+                                          IEvolutionWhatsAppVerifier evolutionWhatsAppVerifier)
         {
             _repository = repository;
             _whatsAppVerifier = whatsAppVerifier;
+            _evolutionWhatsAppVerifier = evolutionWhatsAppVerifier;
         }
 
         public async Task<PhoneNumberVerification> ExecuteAsync(string phoneNumber)
@@ -31,13 +35,14 @@ namespace ApiWhatsAppVerification.Application.UseCases
             }
 
             // Chama serviço externo ou qualquer lógica para verificar se tem WhatsApp
-            bool hasWhatsApp = await _whatsAppVerifier.VerifyAsync(phoneNumber);
+            //bool hasWhatsApp = await _whatsAppVerifier.VerifyWhithTwillioAsync(phoneNumber);
+            EvolutionNumberResponse hasWhatsApp = await _evolutionWhatsAppVerifier.VerifyWhatsAppNumber(phoneNumber);
 
             // Cria a entidade
             var verification = new PhoneNumberVerification
             {
                 PhoneNumber = phoneNumber,
-                HasWhatsApp = hasWhatsApp,
+                HasWhatsApp = hasWhatsApp.Exists,
                 VerifiedAt = DateTime.UtcNow
             };
 

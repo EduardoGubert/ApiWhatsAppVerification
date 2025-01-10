@@ -1,3 +1,10 @@
+D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\obj\Debug\net8.0\ApiWhatsAppVerification.WebApi.csproj.AssemblyReference.cache
+D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\obj\Debug\net8.0\ApiWhatsAppVerification.WebApi.GeneratedMSBuildEditorConfig.editorconfig
+D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\obj\Debug\net8.0\ApiWhatsAppVerification.WebApi.AssemblyInfoInputs.cache
+D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\obj\Debug\net8.0\ApiWhatsAppVerification.WebApi.AssemblyInfo.cs
+D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\obj\Debug\net8.0\ApiWhatsAppVerification.WebApi.csproj.CoreCompileInputs.cache
+D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\obj\Debug\net8.0\ApiWhatsAppVerification.WebApi.MvcApplicationPartsAssemblyInfo.cache
+D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\obj\Debug\net8.0\ApiWhatsAppVerification.WebApi.sourcelink.json
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\bin\Debug\net8.0\appsettings.Development.json
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\bin\Debug\net8.0\appsettings.json
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\bin\Debug\net8.0\ApiWhatsAppVerification.WebApi.exe
@@ -5,6 +12,7 @@ D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\bin\Debug
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\bin\Debug\net8.0\ApiWhatsAppVerification.WebApi.runtimeconfig.json
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\bin\Debug\net8.0\ApiWhatsAppVerification.WebApi.dll
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\bin\Debug\net8.0\ApiWhatsAppVerification.WebApi.pdb
+D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\bin\Debug\net8.0\BCrypt.Net-Next.dll
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\bin\Debug\net8.0\DnsClient.dll
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\bin\Debug\net8.0\Microsoft.AspNetCore.OpenApi.dll
@@ -21,12 +29,14 @@ D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\bin\Debug
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\bin\Debug\net8.0\Microsoft.OpenApi.dll
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\bin\Debug\net8.0\MongoDB.Bson.dll
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\bin\Debug\net8.0\MongoDB.Driver.dll
+D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\bin\Debug\net8.0\Newtonsoft.Json.dll
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\bin\Debug\net8.0\SharpCompress.dll
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\bin\Debug\net8.0\Snappier.dll
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\bin\Debug\net8.0\Twilio.dll
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\bin\Debug\net8.0\ZstdSharp.dll
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\bin\Debug\net8.0\ApiWhatsAppVerification.Application.dll
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\bin\Debug\net8.0\ApiWhatsAppVerification.Domain.dll
@@ -34,14 +44,6 @@ D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\bin\Debug
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\bin\Debug\net8.0\ApiWhatsAppVerification.Application.pdb
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\bin\Debug\net8.0\ApiWhatsAppVerification.Infrastructure.pdb
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\bin\Debug\net8.0\ApiWhatsAppVerification.Domain.pdb
-D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\obj\Debug\net8.0\ApiWhatsAppVerification.WebApi.csproj.AssemblyReference.cache
-D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\obj\Debug\net8.0\ApiWhatsAppVerification.WebApi.GeneratedMSBuildEditorConfig.editorconfig
-D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\obj\Debug\net8.0\ApiWhatsAppVerification.WebApi.AssemblyInfoInputs.cache
-D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\obj\Debug\net8.0\ApiWhatsAppVerification.WebApi.AssemblyInfo.cs
-D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\obj\Debug\net8.0\ApiWhatsAppVerification.WebApi.csproj.CoreCompileInputs.cache
-D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\obj\Debug\net8.0\ApiWhatsAppVerification.WebApi.MvcApplicationPartsAssemblyInfo.cs
-D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\obj\Debug\net8.0\ApiWhatsAppVerification.WebApi.MvcApplicationPartsAssemblyInfo.cache
-D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\obj\Debug\net8.0\ApiWhatsAppVerification.WebApi.sourcelink.json
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\obj\Debug\net8.0\staticwebassets.build.json
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\obj\Debug\net8.0\staticwebassets.development.json
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\obj\Debug\net8.0\staticwebassets\msbuild.ApiWhatsAppVerification.WebApi.Microsoft.AspNetCore.StaticWebAssets.props
@@ -56,4 +58,3 @@ D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\obj\Debug
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\obj\Debug\net8.0\ApiWhatsAppVerification.WebApi.pdb
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\obj\Debug\net8.0\ApiWhatsAppVerification.WebApi.genruntimeconfig.cache
 D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\obj\Debug\net8.0\ref\ApiWhatsAppVerification.WebApi.dll
-D:\PROJETOS\ApiWhatsAppVerification\src\ApiWhatsAppVerification.WebApi\bin\Debug\net8.0\BCrypt.Net-Next.dll

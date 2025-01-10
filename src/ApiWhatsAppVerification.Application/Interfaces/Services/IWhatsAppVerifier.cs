@@ -8,6 +8,7 @@ namespace ApiWhatsAppVerification.Application.Interfaces.Services
 {
     public interface IWhatsAppVerifier
     {
-        Task<bool> VerifyAsync(string phoneNumber);
+        Task<bool> VerifyWhithTwillioAsync(string phoneNumber);
+        Task<bool> VerifyWhithWhatsAppCloudAsync(string phoneNumber);
     }
 }
