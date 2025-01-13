@@ -50,6 +50,9 @@ Thumbs.db
 # Logs
 *.log
 
+/src/ApiWhatsAppVerification.WebApi/appsettings.Development.json
+/src/ApiWhatsAppVerification.WebApi/appsettings.json
+
 ###############################
 # Sistema Operacional
 ###############################
