@@ -1,5 +1,8 @@
-﻿using ApiWhatsAppVerification.Application.Interfaces.Services;
+﻿using ApiWhatsAppVerification.Application.Exceptions;
+using ApiWhatsAppVerification.Application.Interfaces.Services;
+using ApiWhatsAppVerification.Application.UseCases;
 using ApiWhatsAppVerification.Domain.Response;
+using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using System.Globalization;
@@ -14,6 +17,7 @@ namespace ApiWhatsAppVerification.Application.Services
         private readonly HttpClient _httpClient;
         private readonly IConfiguration _configuration;
         private readonly ILogger<EvolutionWhatsAppVerifier> _logger;
+        private readonly InstanceRotatorUseCase _instanceRotator;
 
         private SemaphoreSlim _throttler = new SemaphoreSlim(1);
         private DateTime _lastRequestTime = DateTime.MinValue;
@@ -25,11 +29,13 @@ namespace ApiWhatsAppVerification.Application.Services
         public EvolutionWhatsAppVerifier(
             HttpClient httpClient,
             IConfiguration configuration,
-            ILogger<EvolutionWhatsAppVerifier> logger)
+            ILogger<EvolutionWhatsAppVerifier> logger,
+            InstanceRotatorUseCase instanceRotator)
         {
             _httpClient = httpClient;
             _configuration = configuration;
             _logger = logger;
+            _instanceRotator = instanceRotator;
 
             // Configura o HttpClient com a API key
             _httpClient.DefaultRequestHeaders.Add("apikey", _configuration["EvolutionApi:ApiKey"]);
@@ -42,14 +48,14 @@ namespace ApiWhatsAppVerification.Application.Services
             try
             {
                 phoneNumber = FormatPhoneNumber(phoneNumber);
-                var instanceName = _configuration["EvolutionApi:InstanceName"];
+                var instanceName = _instanceRotator.GetNextInstance();
 
                 _logger.LogInformation($"Verificando número: {phoneNumber} na instância: {instanceName}");
 
                 // Criar o objeto de request
                 var requestBody = new { numbers = new[] { phoneNumber } };
 
-                // Fazer a requisição POST
+                // Fazer a requisição POST                
                 var response = await _httpClient.PostAsJsonAsync(
                  $"/chat/whatsappNumbers/{Uri.EscapeDataString(instanceName)}",
                 requestBody);
@@ -159,7 +165,7 @@ namespace ApiWhatsAppVerification.Application.Services
             {
                 _throttler.Release();
             }
-        }
+        }       
 
     }
 }

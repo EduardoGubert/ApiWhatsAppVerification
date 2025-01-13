@@ -10,6 +10,6 @@ namespace ApiWhatsAppVerification.Domain.Entities
         public string Id { get; set; }
         public string PhoneNumber { get; set; }
         public bool HasWhatsApp { get; set; }
-        public DateTime VerifiedAt { get; set; }
+        public DateTime? VerifiedAt { get; set; }
     }
 }

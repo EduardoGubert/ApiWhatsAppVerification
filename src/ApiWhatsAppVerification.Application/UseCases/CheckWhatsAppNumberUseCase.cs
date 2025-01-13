@@ -31,7 +31,18 @@ namespace ApiWhatsAppVerification.Application.UseCases
             var existingRecord = await _repository.GetByPhoneNumberAsync(phoneNumber);
             if (existingRecord != null)
             {
-                return existingRecord;
+                // Verifica se o número já foi confirmado como tendo WhatsApp
+                if (existingRecord.HasWhatsApp)
+                {
+                    return existingRecord; // Retorna o registro existente se já está verificado e possui WhatsApp
+                }
+
+                // Verifica se a última verificação foi há mais de 30 minutos
+                if (existingRecord.VerifiedAt.HasValue &&
+                    (DateTime.UtcNow - existingRecord.VerifiedAt.Value).TotalMinutes < 30)
+                {
+                    return existingRecord; // Retorna o registro existente se a última verificação foi há menos de 30 minutos
+                }
             }
 
             // Chama serviço externo ou qualquer lógica para verificar se tem WhatsApp

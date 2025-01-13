@@ -30,6 +30,7 @@ namespace ApiWhatsAppVerification.Infrastructure.Ioc
             services.AddScoped<ITokenService, TokenService>();
 
             // UseCases
+            services.AddSingleton<InstanceRotatorUseCase>();
             services.AddScoped<CheckWhatsAppNumberUseCase>();
             services.AddScoped<RegisterUserUseCase>();
             services.AddScoped<UpdateUserUseCase>();
