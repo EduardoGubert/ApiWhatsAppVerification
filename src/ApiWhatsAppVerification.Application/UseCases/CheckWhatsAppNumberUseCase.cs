@@ -37,11 +37,11 @@ namespace ApiWhatsAppVerification.Application.UseCases
                     return existingRecord; // Retorna o registro existente se já está verificado e possui WhatsApp
                 }
 
-                // Verifica se a última verificação foi há mais de 30 minutos
+                // Verifica se a última verificação foi há mais de 60 minutos
                 if (existingRecord.VerifiedAt.HasValue &&
-                    (DateTime.UtcNow - existingRecord.VerifiedAt.Value).TotalMinutes < 30)
+                    (DateTime.UtcNow - existingRecord.VerifiedAt.Value).TotalMinutes < 1200)
                 {
-                    return existingRecord; // Retorna o registro existente se a última verificação foi há menos de 30 minutos
+                    return existingRecord; // Retorna o registro existente se a última verificação foi há menos de 60 minutos
                 }
             }
 

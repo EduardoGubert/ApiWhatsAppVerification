@@ -123,6 +123,11 @@ public class PhoneVerificationController : ControllerBase
                      "QuantidadeFuncionarios,OutrosTelefones,OutrosEmails,whatsAppVerification";
         outputLines.Add(header);
 
+        int totalLines = jsonData.Count;
+        int totalNumbers = jsonData.Sum(r => new List<string> { r.Telefone1, r.Telefone2 }.Concat((r.OutrosTelefones ?? "").Split(",")).Count(t => !string.IsNullOrWhiteSpace(t)));
+        int processedLines = 0;
+        int processedNumbers = 0;
+
         foreach (var record in jsonData)
         {
             var telefones = new List<string> { record.Telefone1, record.Telefone2 };
@@ -148,6 +153,9 @@ public class PhoneVerificationController : ControllerBase
                 {
                     whatsVerificados.Add($"{telefone} -> não");
                 }
+
+                processedNumbers++;
+                Console.WriteLine($"Números processados: {processedNumbers}/{totalNumbers}");
             }
 
             // Junta os números verificados em uma única string
@@ -163,6 +171,9 @@ public class PhoneVerificationController : ControllerBase
                        $"{record.OutrosTelefones},{record.OutrosEmails},\"{verifiedPhones}\"";
 
             outputLines.Add(line);
+
+            processedLines++;
+            Console.WriteLine($"Linhas processadas: {processedLines}/{totalLines}");
         }
 
         // Junta todas as linhas do CSV
