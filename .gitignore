@@ -52,7 +52,7 @@ Thumbs.db
 
 /src/ApiWhatsAppVerification.WebApi/appsettings.Development.json
 /src/ApiWhatsAppVerification.WebApi/appsettings.json
-
+appsettings.Development.json
 ###############################
 # Sistema Operacional
 ###############################
