@@ -33,7 +33,8 @@
     COPY --from=build /app/out ./
     
     # Expor a porta 80 (opcional, mas recomendado)
-    EXPOSE 80
+    EXPOSE 8080
+    ENV ASPNETCORE_URLS=http://+:8080
     
     # Executa a aplicação
     ENTRYPOINT ["dotnet", "ApiWhatsAppVerification.WebApi.dll"]

@@ -10,7 +10,7 @@ using ApiWhatsAppVerification.Domain.Request;
 
 [ApiController]
 [Route("api/[controller]")]
-//[Authorize] // Exige token JWT
+[Authorize]
 public class PhoneVerificationController : ControllerBase
 {
     private readonly CheckWhatsAppNumberUseCase _useCase;
