@@ -69,3 +69,10 @@ Desktop.ini
 
 # Linux
 *~
+/.vs/ApiWhatsAppVerification/v17/DocumentLayout.json
+/src/ApiWhatsAppVerification.WebApi/obj/Debug/net8.0/apphost.exe
+/.vs/ApiWhatsAppVerification/DesignTimeBuild/.dtbcache.v2
+/.vs/ProjectEvaluation/apiwhatsappverification.metadata.v9.bin
+/.vs/ProjectEvaluation/apiwhatsappverification.projects.v9.bin
+/.vs/ProjectEvaluation/apiwhatsappverification.strings.v9.bin
+/.vs/ApiWhatsAppVerification/v17/.futdcache.v2
