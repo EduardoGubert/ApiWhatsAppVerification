@@ -8,6 +8,21 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigin",
+        builder =>
+        {
+            builder
+                .WithOrigins("http://localhost:4200") // Sua URL do Angular
+                .AllowAnyMethod()
+                .AllowAnyHeader()
+                .AllowCredentials();
+        });
+});
+
+
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -100,6 +115,7 @@ if (app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
 }
 
+app.UseCors("AllowSpecificOrigin");
 // 3.1) Ativa autentica��o e autoriza��o
 app.UseAuthentication();
 app.UseAuthorization();
