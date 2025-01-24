@@ -118,11 +118,14 @@ builder.Services.AddHttpClient<IEvolutionWhatsAppVerifier, EvolutionWhatsAppVeri
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment() || app.Environment.IsProduction()) // Modificado aqui
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
-    app.UseDeveloperExceptionPage();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "ApiWhatsAppVerification v1");
+        c.RoutePrefix = string.Empty; // Isso fará o Swagger UI aparecer na raiz
+    });
 }
 
 if (app.Environment.IsProduction())
