@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  api-whatsapp-verification:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: api-whatsapp-verification
+    ports:
+      - "8080:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_URLS=http://+:8080
+    networks:
+      - app-network
+    restart: unless-stopped
+
+networks:
+  app-network:
+    external: true 
