@@ -71,10 +71,13 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
-
+if (string.IsNullOrEmpty(mongoDbUri))
+{
+    throw new Exception("MongoDB connection string not found in environment variables or configuration.");
+}
 
 // 1.1) Registra a camada de Infraestrutura (MongoDB, Reposit�rios, etc.)
-builder.Services.AddInfrastructure(builder.Configuration);
+builder.Services.AddInfrastructure(builder.Configuration, mongoDbUri);
 
 
 // 1.2) Configura autentica��o via JWT
@@ -137,7 +140,9 @@ app.MapControllers();
 
 app.UseHttpsRedirection();
 
-app.Run();
-
 var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
 app.Run($"http://0.0.0.0:{port}");
+
+app.Run();
+
+

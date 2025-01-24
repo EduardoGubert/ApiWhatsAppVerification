@@ -13,11 +13,15 @@ namespace ApiWhatsAppVerification.Infrastructure.Ioc
     public static class DependencyInjection
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services,
-                                                           IConfiguration configuration)
+                                                           IConfiguration configuration, string mongoDbUri = null)
         {
             // Configura Mongo
-            var connectionString = configuration.GetConnectionString("MongoDb");
-            var databaseName = configuration.GetValue<string>("DatabaseName");
+            var connectionString = mongoDbUri ??
+            configuration.GetConnectionString("MongoDb");
+
+            var databaseName = configuration["DatabaseName"] ??
+            "ApiWhatsAppVerificationDB";
+
             services.AddSingleton(new MongoDbContext(connectionString, databaseName));
 
             // Repositórios
