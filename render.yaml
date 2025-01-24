@@ -1,0 +1,26 @@
+services:
+  - type: web
+    name: api-whatsapp-verification
+    env: docker
+    plan: starter
+    branch: prod
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: MONGODB_URI
+        sync: false # Indica que o valor será definido manualmente no dashboard
+      - key: MONGODB_DATABASE
+        value: ApiWhatsAppVerificationDB
+      - key: JWT_ISSUER
+        value: MyIssuer
+      - key: JWT_AUDIENCE
+        value: MyAudience
+      - key: JWT_SECRET_KEY
+        sync: false # Valor sensível, definir manualmente no dashboard
+      - key: EVOLUTION_API_BASE_URL
+        sync: false # Definir URL de produção no dashboard
+      - key: EVOLUTION_API_KEY
+        sync: false # Valor sensível, definir manualmente no dashboard
+      - key: EVOLUTION_API_INSTANCES
+        value: VerificaWhats1,VerificaWhats2,VerificaWhats3

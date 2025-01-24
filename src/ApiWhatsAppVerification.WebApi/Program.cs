@@ -8,20 +8,27 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
+var mongoDbUri = Environment.GetEnvironmentVariable("MONGODB_URI") ?? 
+    builder.Configuration.GetConnectionString("MongoDb");
+var jwtIssuer = Environment.GetEnvironmentVariable("JWT_ISSUER") ?? 
+    builder.Configuration["Jwt:Issuer"];
+var jwtAudience = Environment.GetEnvironmentVariable("JWT_AUDIENCE") ?? 
+    builder.Configuration["Jwt:Audience"];
+var jwtSecretKey = Environment.GetEnvironmentVariable("JWT_SECRET_KEY") ?? 
+    builder.Configuration["Jwt:SecretKey"];
+var frontendUrl = Environment.GetEnvironmentVariable("FRONTEND_URL") ?? 
+    "URL_DO_SEU_FRONTEND_NO_RENDER";
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AllowSpecificOrigin",
-        builder =>
-        {
-            builder
-                .WithOrigins("http://localhost:4200") // Sua URL do Angular
-                .AllowAnyMethod()
-                .AllowAnyHeader()
-                .AllowCredentials();
-        });
+    options.AddPolicy("ProductionPolicy", builder =>
+    {
+        builder
+            .WithOrigins(frontendUrl)
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    });
 });
-
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -85,15 +92,15 @@ builder.Services
         options.SaveToken = true;
 
         // Par�metros de valida��o do token
-        options.TokenValidationParameters = new TokenValidationParameters
+       options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuer = true,
             ValidateAudience = true,
             ValidateIssuerSigningKey = true,
-            ValidIssuer = builder.Configuration["Jwt:Issuer"],
-            ValidAudience = builder.Configuration["Jwt:Audience"],
+            ValidIssuer = jwtIssuer,
+            ValidAudience = jwtAudience,
             IssuerSigningKey = new SymmetricSecurityKey(
-                Encoding.UTF8.GetBytes(builder.Configuration["Jwt:SecretKey"]))
+                Encoding.UTF8.GetBytes(jwtSecretKey))
         };
     });
 
@@ -115,6 +122,12 @@ if (app.Environment.IsDevelopment())
     app.UseDeveloperExceptionPage();
 }
 
+if (app.Environment.IsProduction())
+{
+    app.UseHttpsRedirection();
+    app.UseCors("ProductionPolicy");
+}
+
 app.UseCors("AllowSpecificOrigin");
 // 3.1) Ativa autentica��o e autoriza��o
 app.UseAuthentication();
@@ -126,3 +139,5 @@ app.UseHttpsRedirection();
 
 app.Run();
 
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+app.Run($"http://0.0.0.0:{port}");
