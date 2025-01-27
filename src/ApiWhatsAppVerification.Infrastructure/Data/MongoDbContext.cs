@@ -9,9 +9,16 @@ namespace ApiWhatsAppVerification.Infrastructure.Data
 
         public MongoDbContext(string connectionString, string databaseName)
         {
-            var client = new MongoClient(connectionString);
-            _database = client.GetDatabase(databaseName);
-        }
+            try
+            {
+                var client = new MongoClient(connectionString);
+                var database = client.GetDatabase(databaseName);
+            }
+            catch (Exception ex)
+            {
+                // Log the exception details
+                Console.WriteLine($"Error connecting to MongoDB: {ex.Message}");
+            }        }
 
         public IMongoCollection<PhoneNumberVerification> PhoneVerifications
             => _database.GetCollection<PhoneNumberVerification>("PhoneVerifications");
