@@ -12,7 +12,7 @@ namespace ApiWhatsAppVerification.Infrastructure.Data
             try
             {
                 var client = new MongoClient(connectionString);
-                var database = client.GetDatabase(databaseName);
+                _database = client.GetDatabase(databaseName);
             }
             catch (Exception ex)
             {
