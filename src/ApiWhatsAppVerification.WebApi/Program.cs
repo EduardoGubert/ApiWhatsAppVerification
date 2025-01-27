@@ -29,8 +29,8 @@ if (keyBytes.Length < 32)
 }
 
 // Logs para verificar a chave JWT
-Console.WriteLine("JWT Secret Key (raw): " + jwtSecretKey);
-Console.WriteLine("JWT Secret Key Length (UTF-8 Bytes): " + keyBytes.Length);
+Console.WriteLine($"JWT Secret Key Length (UTF-8 Bytes): {keyBytes.Length}");
+Console.WriteLine($"JWT Secret Key (raw): {jwtSecretKey}");
 
 builder.Services.AddCors(options =>
 {
