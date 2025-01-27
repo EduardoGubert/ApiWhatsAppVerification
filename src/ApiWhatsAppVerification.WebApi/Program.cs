@@ -24,6 +24,10 @@ if (string.IsNullOrEmpty(jwtSecretKey) || jwtSecretKey.Length < 32)
     throw new Exception("JWT secret key must be at least 32 characters long.");
 }
 
+// Log para depuração
+Console.WriteLine($"JWT Secret Key: {jwtSecretKey}");
+Console.WriteLine($"JWT Secret Key Length (UTF-8 Bytes): {Encoding.UTF8.GetBytes(jwtSecretKey).Length}");
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("ProductionPolicy", builder =>
