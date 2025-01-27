@@ -15,7 +15,13 @@ var jwtAudience = Environment.GetEnvironmentVariable("JWT_AUDIENCE") ?? builder.
 var jwtSecretKey = Environment.GetEnvironmentVariable("JWT_SECRET_KEY") ?? builder.Configuration["Jwt:SecretKey"];
 var frontendUrl = Environment.GetEnvironmentVariable("FRONTEND_URL") ?? "URL_DO_SEU_FRONTEND_NO_RENDER";
 
-// Verificações e logs para depuração
+// Logs para verificar a leitura das variáveis de ambiente
+Console.WriteLine($"MongoDB URI: {mongoDbUri}");
+Console.WriteLine($"JWT Issuer: {jwtIssuer}");
+Console.WriteLine($"JWT Audience: {jwtAudience}");
+Console.WriteLine($"JWT Secret Key (raw): {jwtSecretKey}");
+Console.WriteLine($"JWT Secret Key Length (UTF-8 Bytes): {Encoding.UTF8.GetBytes(jwtSecretKey).Length}");
+
 if (string.IsNullOrEmpty(jwtSecretKey))
 {
     throw new Exception("JWT_SECRET_KEY is not set in environment variables or configuration.");
