@@ -8,25 +8,29 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var mongoDbUri = Environment.GetEnvironmentVariable("MONGODB_URI") ??
-    builder.Configuration.GetConnectionString("MongoDb");
-var jwtIssuer = Environment.GetEnvironmentVariable("JWT_ISSUER") ??
-    builder.Configuration["Jwt:Issuer"];
-var jwtAudience = Environment.GetEnvironmentVariable("JWT_AUDIENCE") ??
-    builder.Configuration["Jwt:Audience"];
-var jwtSecretKey = Environment.GetEnvironmentVariable("JWT_SECRET_KEY") ??
-    builder.Configuration["Jwt:SecretKey"];
-var frontendUrl = Environment.GetEnvironmentVariable("FRONTEND_URL") ??
-    "URL_DO_SEU_FRONTEND_NO_RENDER";
+// Leitura das variáveis de ambiente e configuração
+var mongoDbUri = Environment.GetEnvironmentVariable("MONGODB_URI") ?? builder.Configuration.GetConnectionString("MongoDb");
+var jwtIssuer = Environment.GetEnvironmentVariable("JWT_ISSUER") ?? builder.Configuration["Jwt:Issuer"];
+var jwtAudience = Environment.GetEnvironmentVariable("JWT_AUDIENCE") ?? builder.Configuration["Jwt:Audience"];
+var jwtSecretKey = Environment.GetEnvironmentVariable("JWT_SECRET_KEY") ?? builder.Configuration["Jwt:SecretKey"];
+var frontendUrl = Environment.GetEnvironmentVariable("FRONTEND_URL") ?? "URL_DO_SEU_FRONTEND_NO_RENDER";
 
-if (string.IsNullOrEmpty(jwtSecretKey) || jwtSecretKey.Length < 32)
+// Verificações e logs para depuração
+if (string.IsNullOrEmpty(jwtSecretKey))
 {
-    throw new Exception("JWT secret key must be at least 32 characters long.");
+    throw new Exception("JWT_SECRET_KEY is not set in environment variables or configuration.");
 }
 
-// Log para depuração
-Console.WriteLine($"JWT Secret Key: {jwtSecretKey}");
-Console.WriteLine($"JWT Secret Key Length (UTF-8 Bytes): {Encoding.UTF8.GetBytes(jwtSecretKey).Length}");
+var keyBytes = Encoding.UTF8.GetBytes(jwtSecretKey);
+
+if (keyBytes.Length < 32)
+{
+    throw new Exception($"JWT secret key must be at least 32 bytes long. Current length: {keyBytes.Length} bytes.");
+}
+
+// Logs para verificar a chave JWT
+Console.WriteLine("JWT Secret Key (raw): " + jwtSecretKey);
+Console.WriteLine("JWT Secret Key Length (UTF-8 Bytes): " + keyBytes.Length);
 
 builder.Services.AddCors(options =>
 {
@@ -39,8 +43,7 @@ builder.Services.AddCors(options =>
     });
 });
 
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+// Adiciona serviços ao contêiner.
 builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen(c =>
@@ -105,7 +108,7 @@ builder.Services
             ValidateIssuerSigningKey = true,
             ValidIssuer = jwtIssuer,
             ValidAudience = jwtAudience,
-            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSecretKey))
+            IssuerSigningKey = new SymmetricSecurityKey(keyBytes)
         };
     });
 
