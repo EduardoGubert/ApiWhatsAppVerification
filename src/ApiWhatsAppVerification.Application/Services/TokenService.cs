@@ -20,7 +20,17 @@ namespace ApiWhatsAppVerification.Application.Services
         {
             var issuer = _configuration["Jwt:Issuer"];
             var audience = _configuration["Jwt:Audience"];
-            var key = Encoding.UTF8.GetBytes(_configuration["Jwt:SecretKey"]);
+            var secretKey = _configuration["Jwt:SecretKey"];
+
+            // Verificação adicional do valor da chave secreta
+            var keyBytes = Encoding.UTF8.GetBytes(secretKey);
+            Console.WriteLine($"JWT Secret Key (raw): {secretKey}");
+            Console.WriteLine($"JWT Secret Key Length (UTF-8 Bytes): {keyBytes.Length}");
+
+            if (keyBytes.Length < 32)
+            {
+                throw new ArgumentException($"JWT secret key must be at least 32 bytes long. Current length: {keyBytes.Length} bytes.");
+            }
 
             var claims = new[]
             {
@@ -28,8 +38,7 @@ namespace ApiWhatsAppVerification.Application.Services
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
 
-            var creds = new SigningCredentials(
-                new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256);
+            var creds = new SigningCredentials(new SymmetricSecurityKey(keyBytes), SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(
                 issuer: issuer,
