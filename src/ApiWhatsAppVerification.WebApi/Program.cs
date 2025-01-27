@@ -8,16 +8,21 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-var mongoDbUri = Environment.GetEnvironmentVariable("MONGODB_URI") ?? 
+var mongoDbUri = Environment.GetEnvironmentVariable("MONGODB_URI") ??
     builder.Configuration.GetConnectionString("MongoDb");
-var jwtIssuer = Environment.GetEnvironmentVariable("JWT_ISSUER") ?? 
+var jwtIssuer = Environment.GetEnvironmentVariable("JWT_ISSUER") ??
     builder.Configuration["Jwt:Issuer"];
-var jwtAudience = Environment.GetEnvironmentVariable("JWT_AUDIENCE") ?? 
+var jwtAudience = Environment.GetEnvironmentVariable("JWT_AUDIENCE") ??
     builder.Configuration["Jwt:Audience"];
-var jwtSecretKey = Environment.GetEnvironmentVariable("JWT_SECRET_KEY") ?? 
+var jwtSecretKey = Environment.GetEnvironmentVariable("JWT_SECRET_KEY") ??
     builder.Configuration["Jwt:SecretKey"];
-var frontendUrl = Environment.GetEnvironmentVariable("FRONTEND_URL") ?? 
+var frontendUrl = Environment.GetEnvironmentVariable("FRONTEND_URL") ??
     "URL_DO_SEU_FRONTEND_NO_RENDER";
+
+if (string.IsNullOrEmpty(jwtSecretKey) || jwtSecretKey.Length < 32)
+{
+    throw new Exception("JWT secret key must be at least 32 characters long.");
+}
 
 builder.Services.AddCors(options =>
 {
@@ -34,12 +39,11 @@ builder.Services.AddCors(options =>
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 
-
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "ApiWhatsAppVerification", Version = "v1" });
 
-    // 1) Definição de segurança (tipo Bearer)
+    // Definição de segurança (tipo Bearer)
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Description = "JWT Authorization header usando o esquema Bearer. \r\n\r\n " +
@@ -51,7 +55,7 @@ builder.Services.AddSwaggerGen(c =>
         Scheme = "Bearer"
     });
 
-    // 2) Configura a exigência de segurança global para as operações
+    // Configura a exigência de segurança global para as operações
     c.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
         {
@@ -76,41 +80,35 @@ if (string.IsNullOrEmpty(mongoDbUri))
     throw new Exception("MongoDB connection string not found in environment variables or configuration.");
 }
 
-// 1.1) Registra a camada de Infraestrutura (MongoDB, Reposit�rios, etc.)
+// Registra a camada de Infraestrutura (MongoDB, Repositórios, etc.)
 builder.Services.AddInfrastructure(builder.Configuration, mongoDbUri);
 
-
-// 1.2) Configura autentica��o via JWT
+// Configura autenticação via JWT
 builder.Services
     .AddAuthentication(options =>
     {
-        // Define o esquema de autentica��o e desafio como JwtBearer
         options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
         options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
     })
     .AddJwtBearer(options =>
     {
-        // Em ambiente de produ��o, mantenha RequireHttpsMetadata como true
         options.RequireHttpsMetadata = false;
         options.SaveToken = true;
-
-        // Par�metros de valida��o do token
-       options.TokenValidationParameters = new TokenValidationParameters
+        options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuer = true,
             ValidateAudience = true,
             ValidateIssuerSigningKey = true,
             ValidIssuer = jwtIssuer,
             ValidAudience = jwtAudience,
-            IssuerSigningKey = new SymmetricSecurityKey(
-                Encoding.UTF8.GetBytes(jwtSecretKey))
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtSecretKey))
         };
     });
 
-// 1.3) Adiciona autoriza��o (necess�rio depois de AddAuthentication)
+// Adiciona autorização
 builder.Services.AddAuthorization();
 
-// 1.4) Habilita Controllers (MVC)
+// Habilita Controllers (MVC)
 builder.Services.AddControllers();
 
 builder.Services.AddHttpClient<IEvolutionWhatsAppVerifier, EvolutionWhatsAppVerifier>();
@@ -118,7 +116,7 @@ builder.Services.AddHttpClient<IEvolutionWhatsAppVerifier, EvolutionWhatsAppVeri
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment() || app.Environment.IsProduction()) // Modificado aqui
+if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 {
     app.UseSwagger();
     app.UseSwaggerUI(c =>
@@ -135,17 +133,14 @@ if (app.Environment.IsProduction())
 }
 
 app.UseCors("AllowSpecificOrigin");
-// 3.1) Ativa autentica��o e autoriza��o
+
+// Ativa autenticação e autorização
 app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
 
-app.UseHttpsRedirection();
-
 var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
 app.Run($"http://0.0.0.0:{port}");
 
 app.Run();
-
-
