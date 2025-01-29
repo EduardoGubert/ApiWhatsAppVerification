@@ -22,6 +22,22 @@ public class PhoneVerificationController : ControllerBase
         _useCase = useCase;
     }
 
+    [HttpGet("debug-auth")]
+    [Authorize]
+    public IActionResult DebugAuth()
+    {
+        var claims = User.Claims.Select(c => new { c.Type, c.Value });
+        var headers = Request.Headers.ToDictionary(h => h.Key, h => h.Value.ToString());
+
+        return Ok(new
+        {
+            IsAuthenticated = User.Identity?.IsAuthenticated,
+            UserName = User.Identity?.Name,
+            Claims = claims,
+            Headers = headers
+        });
+    }
+
     [HttpGet("check")]
     public async Task<IActionResult> Check(string phoneNumber)
     {

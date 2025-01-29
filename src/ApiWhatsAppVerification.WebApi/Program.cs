@@ -22,14 +22,12 @@ builder.Services.AddCors(options =>
     options.AddPolicy("ProductionPolicy", builder =>
     {
         builder
-            .WithOrigins(
-                "https://whatsapp-verification-frontend.vercel.app"
-            )
+            .WithOrigins("https://whatsapp-verification-frontend.vercel.app")
             .AllowAnyMethod()
             .AllowAnyHeader()
-            .AllowCredentials() // Adicione isso se estiver usando cookies
-            .WithExposedHeaders("Authorization") // Permite expor headers adicionais se necessário
-            .WithHeaders("Authorization", "Content-Type", "Accept");
+            .AllowCredentials()
+            .WithExposedHeaders("Authorization")
+            .SetIsOriginAllowed(origin => true); // Adicione esta linha
     });
 });
 
@@ -87,20 +85,42 @@ builder.Services
         options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
         options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
     })
-    .AddJwtBearer(options =>
-    {
-        options.RequireHttpsMetadata = false;
-        options.SaveToken = true;
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuer = true,
-            ValidateAudience = true,
-            ValidateIssuerSigningKey = true,
-            ValidIssuer = jwtIssuer,
-            ValidAudience = jwtAudience,
-            IssuerSigningKey = new SymmetricSecurityKey(keyBytes)
-        };
-    });
+  .AddJwtBearer(options =>
+  {
+      options.RequireHttpsMetadata = false;
+      options.SaveToken = true;
+      options.TokenValidationParameters = new TokenValidationParameters
+      {
+          ValidateIssuer = true,
+          ValidateAudience = true,
+          ValidateLifetime = true,
+          ValidateIssuerSigningKey = true,
+          ValidIssuer = jwtIssuer,
+          ValidAudience = jwtAudience,
+          IssuerSigningKey = new SymmetricSecurityKey(keyBytes),
+          ClockSkew = TimeSpan.Zero // Remove o delay padrão de 5 minutos
+      };
+
+      // Adicione estes handlers para debug
+      options.Events = new JwtBearerEvents
+      {
+          OnAuthenticationFailed = context =>
+          {
+              Console.WriteLine("OnAuthenticationFailed: " + context.Exception.Message);
+              return Task.CompletedTask;
+          },
+          OnTokenValidated = context =>
+          {
+              Console.WriteLine("OnTokenValidated: " + context.SecurityToken);
+              return Task.CompletedTask;
+          },
+          OnChallenge = context =>
+          {
+              Console.WriteLine("OnChallenge: " + context.Error);
+              return Task.CompletedTask;
+          }
+      };
+  });
 
 // Adiciona autorização
 builder.Services.AddAuthorization();
@@ -112,6 +132,34 @@ builder.Services.AddHttpClient<IEvolutionWhatsAppVerifier, EvolutionWhatsAppVeri
 
 var app = builder.Build();
 
+// 1. Primeiro o Swagger (antes de qualquer middleware)
+if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "ApiWhatsAppVerification v1");
+        c.RoutePrefix = string.Empty;
+    });
+}
+
+// 2. HTTPS Redirection (se necessário)
+if (app.Environment.IsProduction())
+{
+    app.UseHttpsRedirection();
+}
+
+// 3. Routing DEVE vir antes do CORS e Auth
+app.UseRouting();
+
+// 4. CORS DEVE vir depois do Routing e antes da Auth
+app.UseCors("ProductionPolicy");
+
+// 5. Authentication DEVE vir antes da Authorization
+app.UseAuthentication();
+app.UseAuthorization();
+
+// 6. Middleware de OPTIONS (mova para depois do CORS)
 app.Use(async (context, next) =>
 {
     if (context.Request.Method == "OPTIONS")
@@ -128,34 +176,12 @@ app.Use(async (context, next) =>
     await next();
 });
 
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "ApiWhatsAppVerification v1");
-        c.RoutePrefix = string.Empty; // Isso fará o Swagger UI aparecer na raiz
-    });
-}
-
-app.UseCors("ProductionPolicy");
-
-if (app.Environment.IsProduction())
-{
-    app.UseHttpsRedirection();
-}
-
-
-
-// Ativa autenticação e autorização
-app.UseAuthentication();
-app.UseAuthorization();
-
+// 7. Controllers
 app.MapControllers();
 
+// 8. Configuração da porta e execução
 var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
 app.Run($"http://0.0.0.0:{port}");
 
-app.Run();
+// Remova esta linha, pois você já tem um app.Run acima
+// app.Run();
