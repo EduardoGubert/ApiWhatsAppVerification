@@ -8,7 +8,7 @@ using Microsoft.IdentityModel.Tokens;
 
 [ApiController]
 [Route("api/[controller]")]
-[EnableCors("AllowVercel")]
+[EnableCors("ProductionPolicy")]
 public class AuthController : ControllerBase
 {
     private readonly RegisterUserUseCase _registerUserUseCase;
@@ -33,6 +33,13 @@ public class AuthController : ControllerBase
     public IActionResult TestCors()
     {
         return Ok(new { message = "CORS is working!" });
+    }
+
+    [HttpOptions("login")]
+    [AllowAnonymous]
+    public IActionResult PreflightRoute()
+    {
+        return Ok();
     }
 
     [HttpPost("register")]
@@ -83,10 +90,7 @@ public class AuthController : ControllerBase
     [Consumes("application/json")]
     [Produces("application/json")]
     public async Task<IActionResult> Login([FromBody] LoginRequest request)
-    {
-        Console.WriteLine($"Content-Type: {Request.ContentType}");
-        Console.WriteLine($"Request Body: {await new StreamReader(Request.Body).ReadToEndAsync()}");
-
+    {      
         var token = await _loginUserUseCase.ExecuteAsync(
             request.Username,
             request.Password);
@@ -97,19 +101,6 @@ public class AuthController : ControllerBase
         }
 
         return Ok(new { token });
-    }
-
-    [HttpOptions("login")]
-    public IActionResult HandleLoginOptions()
-    {
-        Response.Headers.Add("Access-Control-Allow-Origin", "https://whatsapp-verification-frontend.vercel.app");
-        Response.Headers.Add("Access-Control-Allow-Methods", "POST, OPTIONS");
-        Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, Authorization, Accept");
-        Response.Headers.Add("Access-Control-Max-Age", "86400");
-        return Ok();
-    }
-
-
-
+    }  
 
 }

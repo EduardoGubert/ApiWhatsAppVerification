@@ -15,29 +15,6 @@ var jwtAudience = Environment.GetEnvironmentVariable("JWT_AUDIENCE") ?? builder.
 var jwtSecretKey = Environment.GetEnvironmentVariable("JWT_SECRET_KEY") ?? builder.Configuration["Jwt:SecretKey"];
 var frontendUrl = Environment.GetEnvironmentVariable("FRONTEND_URL") ?? "https://whatsapp-verification-frontend.vercel.app";
 
-// Logs para verificar a leitura das variáveis de ambiente
-Console.WriteLine($"MongoDB URI: {mongoDbUri}");
-Console.WriteLine($"JWT Issuer: {jwtIssuer}");
-Console.WriteLine($"JWT Audience: {jwtAudience}");
-Console.WriteLine($"JWT Secret Key (raw): {jwtSecretKey}");
-Console.WriteLine($"JWT Secret Key Length (UTF-8 Bytes): {Encoding.UTF8.GetBytes(jwtSecretKey).Length}");
-
-if (string.IsNullOrEmpty(jwtSecretKey))
-{
-    throw new Exception("JWT_SECRET_KEY is not set in environment variables or configuration.");
-}
-
-var keyBytes = Encoding.UTF8.GetBytes(jwtSecretKey);
-
-if (keyBytes.Length < 32)
-{
-    throw new Exception($"JWT secret key must be at least 32 bytes long. Current length: {keyBytes.Length} bytes.");
-}
-
-// Logs para verificar a chave JWT
-Console.WriteLine($"JWT Secret Key Length (UTF-8 Bytes): {keyBytes.Length}");
-Console.WriteLine($"JWT Secret Key (raw): {jwtSecretKey}");
-
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("ProductionPolicy", builder =>
@@ -48,7 +25,9 @@ builder.Services.AddCors(options =>
                 "https://whatsapp-verification-frontend.vercel.app"
             )
             .AllowAnyMethod()
-            .AllowAnyHeader();
+            .AllowAnyHeader()
+            .AllowCredentials() // Adicione isso se estiver usando cookies
+            .WithExposedHeaders("*"); // Permite expor headers adicionais se necessário
     });
 });
 
@@ -130,6 +109,7 @@ builder.Services.AddControllers();
 builder.Services.AddHttpClient<IEvolutionWhatsAppVerifier, EvolutionWhatsAppVerifier>();
 
 var app = builder.Build();
+app.UseCors("ProductionPolicy");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
@@ -142,12 +122,25 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
     });
 }
 
-app.UseCors("AllowVercel");
-
 if (app.Environment.IsProduction())
 {
     app.UseHttpsRedirection();
 }
+
+app.Use(async (context, next) =>
+{
+    if (context.Request.Method == "OPTIONS")
+    {
+        context.Response.Headers.Add("Access-Control-Allow-Origin", "https://whatsapp-verification-frontend.vercel.app");
+        context.Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+        context.Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, Authorization, Accept");
+        context.Response.Headers.Add("Access-Control-Max-Age", "86400");
+        context.Response.StatusCode = 200;
+        return;
+    }
+
+    await next();
+});
 
 // Ativa autenticação e autorização
 app.UseAuthentication();
