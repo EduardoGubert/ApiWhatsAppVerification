@@ -109,23 +109,6 @@ builder.Services.AddControllers();
 builder.Services.AddHttpClient<IEvolutionWhatsAppVerifier, EvolutionWhatsAppVerifier>();
 
 var app = builder.Build();
-app.UseCors("ProductionPolicy");
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "ApiWhatsAppVerification v1");
-        c.RoutePrefix = string.Empty; // Isso fará o Swagger UI aparecer na raiz
-    });
-}
-
-if (app.Environment.IsProduction())
-{
-    app.UseHttpsRedirection();
-}
 
 app.Use(async (context, next) =>
 {
@@ -141,6 +124,27 @@ app.Use(async (context, next) =>
 
     await next();
 });
+
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "ApiWhatsAppVerification v1");
+        c.RoutePrefix = string.Empty; // Isso fará o Swagger UI aparecer na raiz
+    });
+}
+
+app.UseCors("ProductionPolicy");
+
+if (app.Environment.IsProduction())
+{
+    app.UseHttpsRedirection();
+}
+
+
 
 // Ativa autenticação e autorização
 app.UseAuthentication();
