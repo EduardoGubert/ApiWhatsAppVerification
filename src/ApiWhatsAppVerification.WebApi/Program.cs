@@ -15,6 +15,8 @@ var jwtAudience = Environment.GetEnvironmentVariable("JWT_AUDIENCE") ?? builder.
 var jwtSecretKey = Environment.GetEnvironmentVariable("JWT_SECRET_KEY") ?? builder.Configuration["Jwt:SecretKey"];
 var frontendUrl = Environment.GetEnvironmentVariable("FRONTEND_URL") ?? "https://whatsapp-verification-frontend.vercel.app";
 
+var keyBytes = Encoding.UTF8.GetBytes(jwtSecretKey);
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("ProductionPolicy", builder =>
