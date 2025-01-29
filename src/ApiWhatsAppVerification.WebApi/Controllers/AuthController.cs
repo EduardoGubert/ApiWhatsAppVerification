@@ -80,8 +80,13 @@ public class AuthController : ControllerBase
     }
 
     [HttpPost("login")]
+    [Consumes("application/json")]
+    [Produces("application/json")]
     public async Task<IActionResult> Login([FromBody] LoginRequest request)
     {
+        Console.WriteLine($"Content-Type: {Request.ContentType}");
+        Console.WriteLine($"Request Body: {await new StreamReader(Request.Body).ReadToEndAsync()}");
+
         var token = await _loginUserUseCase.ExecuteAsync(
             request.Username,
             request.Password);
@@ -94,7 +99,17 @@ public class AuthController : ControllerBase
         return Ok(new { token });
     }
 
+    [HttpOptions("login")]
+    public IActionResult HandleLoginOptions()
+    {
+        Response.Headers.Add("Access-Control-Allow-Origin", "https://whatsapp-verification-frontend.vercel.app");
+        Response.Headers.Add("Access-Control-Allow-Methods", "POST, OPTIONS");
+        Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, Authorization, Accept");
+        Response.Headers.Add("Access-Control-Max-Age", "86400");
+        return Ok();
+    }
 
-    
+
+
 
 }
