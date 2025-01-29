@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Cors;
 [ApiController]
 [Route("api/[controller]")]
 [Authorize]
-[EnableCors("AllowVercel")]
+[EnableCors("ProductionPolicy")]
 public class PhoneVerificationController : ControllerBase
 {
     private readonly CheckWhatsAppNumberUseCase _useCase;

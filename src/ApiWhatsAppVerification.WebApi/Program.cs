@@ -23,13 +23,13 @@ builder.Services.AddCors(options =>
     {
         builder
             .WithOrigins(
-                "https://whatsapp-verification-frontend-1ad4iu4u6.vercel.app",
                 "https://whatsapp-verification-frontend.vercel.app"
             )
             .AllowAnyMethod()
             .AllowAnyHeader()
             .AllowCredentials() // Adicione isso se estiver usando cookies
-            .WithExposedHeaders("*"); // Permite expor headers adicionais se necessário
+            .WithExposedHeaders("Authorization") // Permite expor headers adicionais se necessário
+            .WithHeaders("Authorization", "Content-Type", "Accept");
     });
 });
 
@@ -119,6 +119,7 @@ app.Use(async (context, next) =>
         context.Response.Headers.Add("Access-Control-Allow-Origin", "https://whatsapp-verification-frontend.vercel.app");
         context.Response.Headers.Add("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
         context.Response.Headers.Add("Access-Control-Allow-Headers", "Content-Type, Authorization, Accept");
+        context.Response.Headers.Add("Access-Control-Allow-Credentials", "true");
         context.Response.Headers.Add("Access-Control-Max-Age", "86400");
         context.Response.StatusCode = 200;
         return;

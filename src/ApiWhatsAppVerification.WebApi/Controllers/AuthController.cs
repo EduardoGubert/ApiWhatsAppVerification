@@ -26,21 +26,7 @@ public class AuthController : ControllerBase
         _updateUserUseCase = updateUserUseCase;
         _deleteUserUseCase = deleteUserUseCase;
         _loginUserUseCase = loginUserUseCase;
-    }
-
-    [HttpGet("test-cors")]
-    [AllowAnonymous] // Permite acesso sem autenticação
-    public IActionResult TestCors()
-    {
-        return Ok(new { message = "CORS is working!" });
-    }
-
-    [HttpOptions("login")]
-    [AllowAnonymous]
-    public IActionResult PreflightRoute()
-    {
-        return Ok();
-    }
+    } 
 
     [HttpPost("register")]
     public async Task<IActionResult> Register([FromBody] RegisterRequest request)
