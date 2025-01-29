@@ -81,62 +81,24 @@ if (string.IsNullOrEmpty(mongoDbUri))
 builder.Services.AddInfrastructure(builder.Configuration, mongoDbUri);
 
 // Configura autenticação via JWT
-//builder.Services
-//    .AddAuthentication(options =>
-//    {
-//        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-//        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-//    })
-//    .AddJwtBearer(options =>
-//    {
-//        options.RequireHttpsMetadata = false;
-//        options.SaveToken = true;
-//        options.TokenValidationParameters = new TokenValidationParameters
-//        {
-//            ValidateIssuer = true,
-//            ValidateAudience = true,
-//            ValidateIssuerSigningKey = true,
-//            ValidIssuer = jwtIssuer,
-//            ValidAudience = jwtAudience,
-//            IssuerSigningKey = new SymmetricSecurityKey(keyBytes)
-//        };
-//    });
-
-
 builder.Services
-    .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddAuthentication(options =>
+    {
+        options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    })
     .AddJwtBearer(options =>
     {
+        options.RequireHttpsMetadata = false;
+        options.SaveToken = true;
         options.TokenValidationParameters = new TokenValidationParameters
         {
             ValidateIssuer = true,
             ValidateAudience = true,
-            ValidateLifetime = true,
             ValidateIssuerSigningKey = true,
-            ValidIssuer = builder.Configuration["Jwt:Issuer"],
-            ValidAudience = builder.Configuration["Jwt:Audience"],
-            IssuerSigningKey = new SymmetricSecurityKey(
-                Encoding.UTF8.GetBytes(builder.Configuration["Jwt:SecretKey"]))
-        };
-
-        // Adicione isso para debug
-        options.Events = new JwtBearerEvents
-        {
-            OnAuthenticationFailed = context =>
-            {
-                Console.WriteLine("OnAuthenticationFailed: " + context.Exception.Message);
-                return Task.CompletedTask;
-            },
-            OnTokenValidated = context =>
-            {
-                Console.WriteLine("OnTokenValidated: " + context.SecurityToken);
-                return Task.CompletedTask;
-            },
-            OnChallenge = context =>
-            {
-                Console.WriteLine("OnChallenge: " + context.Error);
-                return Task.CompletedTask;
-            }
+            ValidIssuer = jwtIssuer,
+            ValidAudience = jwtAudience,
+            IssuerSigningKey = new SymmetricSecurityKey(keyBytes)
         };
     });
 
@@ -185,19 +147,15 @@ if (app.Environment.IsProduction())
     app.UseHttpsRedirection();
 }
 
+
+
 // Ativa autenticação e autorização
 app.UseAuthentication();
 app.UseAuthorization();
 
-
-app.UseRouting();
-
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllers();
-});
+app.MapControllers();
 
 var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
-//app.Run($"http://0.0.0.0:{port}");
+app.Run($"http://0.0.0.0:{port}");
 
 app.Run();
