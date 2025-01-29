@@ -43,7 +43,10 @@ builder.Services.AddCors(options =>
     options.AddPolicy("ProductionPolicy", builder =>
     {
         builder
-            .WithOrigins(frontendUrl)
+            .WithOrigins(
+                "https://whatsapp-verification-frontend-1ad4iu4u6.vercel.app",
+                "https://whatsapp-verification-frontend.vercel.app"
+            )
             .AllowAnyMethod()
             .AllowAnyHeader();
     });
@@ -139,13 +142,12 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
     });
 }
 
+app.UseCors("AllowVercel");
+
 if (app.Environment.IsProduction())
 {
     app.UseHttpsRedirection();
-    app.UseCors("ProductionPolicy");
 }
-
-app.UseCors("AllowSpecificOrigin");
 
 // Ativa autenticação e autorização
 app.UseAuthentication();

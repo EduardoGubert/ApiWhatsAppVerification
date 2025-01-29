@@ -7,10 +7,12 @@ using System.Text;
 using CsvHelper.Configuration;
 using CsvHelper;
 using ApiWhatsAppVerification.Domain.Request;
+using Microsoft.AspNetCore.Cors;
 
 [ApiController]
 [Route("api/[controller]")]
 [Authorize]
+[EnableCors("AllowVercel")]
 public class PhoneVerificationController : ControllerBase
 {
     private readonly CheckWhatsAppNumberUseCase _useCase;
