@@ -1,6 +1,7 @@
 ﻿using ApiWhatsAppVerification.Application.UseCases;
 using ApiWhatsAppVerification.Domain.Dtos;
 using ApiWhatsAppVerification.Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
@@ -25,6 +26,13 @@ public class AuthController : ControllerBase
         _updateUserUseCase = updateUserUseCase;
         _deleteUserUseCase = deleteUserUseCase;
         _loginUserUseCase = loginUserUseCase;
+    }
+
+    [HttpGet("test-cors")]
+    [AllowAnonymous] // Permite acesso sem autenticação
+    public IActionResult TestCors()
+    {
+        return Ok(new { message = "CORS is working!" });
     }
 
     [HttpPost("register")]
