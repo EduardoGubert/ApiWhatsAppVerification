@@ -9,49 +9,84 @@ using CsvHelper;
 using ApiWhatsAppVerification.Domain.Request;
 using Microsoft.AspNetCore.Cors;
 
+
 [ApiController]
 [Route("api/[controller]")]
 [Authorize]
 [EnableCors("ProductionPolicy")]
 public class PhoneVerificationController : ControllerBase
 {
+    private readonly ILogger<PhoneVerificationController> _logger;
     private readonly CheckWhatsAppNumberUseCase _useCase;
 
-    public PhoneVerificationController(CheckWhatsAppNumberUseCase useCase)
+    public PhoneVerificationController(ILogger<PhoneVerificationController> logger, 
+        CheckWhatsAppNumberUseCase useCase)
     {
+        _logger = logger;
         _useCase = useCase;
     }
 
-    [HttpGet("debug-auth")]
-    [Authorize]
-    public IActionResult DebugAuth()
+    [HttpGet("debug")]
+    [AllowAnonymous]
+    public IActionResult Debug()
     {
-        var claims = User.Claims.Select(c => new { c.Type, c.Value });
-        var headers = Request.Headers.ToDictionary(h => h.Key, h => h.Value.ToString());
-
-        return Ok(new
+        try
         {
-            IsAuthenticated = User.Identity?.IsAuthenticated,
-            UserName = User.Identity?.Name,
-            Claims = claims,
-            Headers = headers
-        });
+            var config = new
+            {
+                Environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT"),
+                JWT_Issuer = Environment.GetEnvironmentVariable("JWT_ISSUER") ?? "Not Set",
+                JWT_Audience = Environment.GetEnvironmentVariable("JWT_AUDIENCE") ?? "Not Set",
+                Has_JWT_Secret = !string.IsNullOrEmpty(Environment.GetEnvironmentVariable("JWT_SECRET_KEY")),
+                Has_MongoDB_URI = !string.IsNullOrEmpty(Environment.GetEnvironmentVariable("MONGODB_URI")),
+                Claims = User.Claims.Select(c => new { c.Type, c.Value }).ToList(),
+                Headers = Request.Headers.ToDictionary(h => h.Key, h => h.Value.ToString())
+            };
+
+            return Ok(config);
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError($"Erro no debug: {ex.Message}");
+            return StatusCode(500, new { error = ex.Message, stackTrace = ex.StackTrace });
+        }
     }
+
 
     [HttpGet("check")]
     public async Task<IActionResult> Check(string phoneNumber)
     {
-        if (string.IsNullOrWhiteSpace(phoneNumber))
-            return BadRequest("Phone number is required.");
-
-        PhoneNumberVerification result = await _useCase.ExecuteAsync(phoneNumber);
-
-        return Ok(new
+        try
         {
-            phoneNumber = result.PhoneNumber,
-            hasWhatsApp = result.HasWhatsApp,
-            verifiedAt = result.VerifiedAt
-        });
+            _logger.LogInformation($"Iniciando verificação do número: {phoneNumber}");
+
+            // Log das informações de autenticação
+            _logger.LogInformation($"Usuário autenticado: {User.Identity?.Name}");
+            _logger.LogInformation($"Claims: {string.Join(", ", User.Claims.Select(c => $"{c.Type}: {c.Value}"))}");
+
+            if (string.IsNullOrWhiteSpace(phoneNumber))
+                return BadRequest("Phone number is required.");
+
+            PhoneNumberVerification result = await _useCase.ExecuteAsync(phoneNumber);
+            _logger.LogInformation($"Verificação concluída com sucesso para {phoneNumber}");
+            return Ok(new
+            {
+                phoneNumber = result.PhoneNumber,
+                hasWhatsApp = result.HasWhatsApp,
+                verifiedAt = result.VerifiedAt
+            });
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError($"Erro ao verificar número {phoneNumber}: {ex.Message}");
+            _logger.LogError($"StackTrace: {ex.StackTrace}");
+            return StatusCode(500, new
+            {
+                message = "Erro interno ao verificar número",
+                error = ex.Message,
+                stackTrace = ex.StackTrace // Em produção, você pode querer remover isso
+            });
+        }
     }
 
     [HttpPost("check-bulk")]

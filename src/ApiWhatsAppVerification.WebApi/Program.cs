@@ -3,6 +3,7 @@ using ApiWhatsAppVerification.Application.Services;
 using ApiWhatsAppVerification.Infrastructure.Ioc;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System.Text;
 
@@ -78,6 +79,11 @@ if (string.IsNullOrEmpty(mongoDbUri))
 // Registra a camada de Infraestrutura (MongoDB, Repositórios, etc.)
 builder.Services.AddInfrastructure(builder.Configuration, mongoDbUri);
 
+
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
+builder.Logging.SetMinimumLevel(LogLevel.Information);
+
 // Configura autenticação via JWT
 builder.Services
     .AddAuthentication(options =>
@@ -87,6 +93,8 @@ builder.Services
     })
   .AddJwtBearer(options =>
   {
+      var logger = builder.Services.BuildServiceProvider().GetRequiredService<ILogger<Program>>();
+
       options.RequireHttpsMetadata = false;
       options.SaveToken = true;
       options.TokenValidationParameters = new TokenValidationParameters
@@ -98,25 +106,26 @@ builder.Services
           ValidIssuer = jwtIssuer,
           ValidAudience = jwtAudience,
           IssuerSigningKey = new SymmetricSecurityKey(keyBytes),
-          ClockSkew = TimeSpan.Zero // Remove o delay padrão de 5 minutos
+          ClockSkew = TimeSpan.Zero
       };
 
-      // Adicione estes handlers para debug
+      // Handlers de eventos para debug
       options.Events = new JwtBearerEvents
       {
           OnAuthenticationFailed = context =>
           {
-              Console.WriteLine("OnAuthenticationFailed: " + context.Exception.Message);
+              logger.LogError($"Falha na autenticação: {context.Exception.Message}");
               return Task.CompletedTask;
           },
           OnTokenValidated = context =>
           {
-              Console.WriteLine("OnTokenValidated: " + context.SecurityToken);
+              logger.LogInformation("Token validado com sucesso!");
+              logger.LogInformation($"Claims: {string.Join(", ", context.Principal.Claims.Select(c => $"{c.Type}: {c.Value}"))}");
               return Task.CompletedTask;
           },
           OnChallenge = context =>
           {
-              Console.WriteLine("OnChallenge: " + context.Error);
+              logger.LogWarning($"Challenge: {context.Error}, {context.ErrorDescription}");
               return Task.CompletedTask;
           }
       };
