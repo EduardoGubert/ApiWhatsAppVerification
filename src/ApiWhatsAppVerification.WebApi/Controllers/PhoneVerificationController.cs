@@ -22,33 +22,30 @@ public class PhoneVerificationController : ControllerBase
     public PhoneVerificationController(ILogger<PhoneVerificationController> logger, 
         CheckWhatsAppNumberUseCase useCase)
     {
-        _logger = logger;
-        _useCase = useCase;
+        _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+        _useCase = useCase ?? throw new ArgumentNullException(nameof(useCase));
+
+        _logger.LogInformation("PhoneVerificationController construído com sucesso");
     }
 
-    [HttpGet("debug")]
+    [HttpGet("test-di")]
     [AllowAnonymous]
-    public IActionResult Debug()
+    public IActionResult TestDependencyInjection()
     {
         try
         {
-            var config = new
+            var services = new
             {
-                Environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT"),
-                JWT_Issuer = Environment.GetEnvironmentVariable("JWT_ISSUER") ?? "Not Set",
-                JWT_Audience = Environment.GetEnvironmentVariable("JWT_AUDIENCE") ?? "Not Set",
-                Has_JWT_Secret = !string.IsNullOrEmpty(Environment.GetEnvironmentVariable("JWT_SECRET_KEY")),
-                Has_MongoDB_URI = !string.IsNullOrEmpty(Environment.GetEnvironmentVariable("MONGODB_URI")),
-                Claims = User.Claims.Select(c => new { c.Type, c.Value }).ToList(),
-                Headers = Request.Headers.ToDictionary(h => h.Key, h => h.Value.ToString())
+                HasLogger = _logger != null,
+                HasUseCase = _useCase != null,
+                UseCaseType = _useCase?.GetType().FullName
             };
 
-            return Ok(config);
+            return Ok(services);
         }
         catch (Exception ex)
         {
-            _logger.LogError($"Erro no debug: {ex.Message}");
-            return StatusCode(500, new { error = ex.Message, stackTrace = ex.StackTrace });
+            return StatusCode(500, new { error = ex.Message });
         }
     }
 
@@ -58,17 +55,35 @@ public class PhoneVerificationController : ControllerBase
     {
         try
         {
-            _logger.LogInformation($"Iniciando verificação do número: {phoneNumber}");
-
-            // Log das informações de autenticação
-            _logger.LogInformation($"Usuário autenticado: {User.Identity?.Name}");
-            _logger.LogInformation($"Claims: {string.Join(", ", User.Claims.Select(c => $"{c.Type}: {c.Value}"))}");
+            _logger.LogInformation($"[1] Iniciando verificação do número: {phoneNumber}");
 
             if (string.IsNullOrWhiteSpace(phoneNumber))
+            {
+                _logger.LogWarning("Número de telefone vazio ou nulo");
                 return BadRequest("Phone number is required.");
+            }
 
+            _logger.LogInformation($"[2] Chamando useCase para número: {phoneNumber}");
+
+            // Verifica se o useCase está nulo
+            if (_useCase == null)
+            {
+                _logger.LogError("UseCase é nulo!");
+                return StatusCode(500, new { message = "Erro de configuração do serviço" });
+            }
+
+            _logger.LogInformation($"[3] Executando useCase");
             PhoneNumberVerification result = await _useCase.ExecuteAsync(phoneNumber);
-            _logger.LogInformation($"Verificação concluída com sucesso para {phoneNumber}");
+
+            _logger.LogInformation($"[4] UseCase executado com sucesso");
+
+            if (result == null)
+            {
+                _logger.LogWarning("Resultado do useCase é nulo");
+                return StatusCode(500, new { message = "Resultado da verificação é nulo" });
+            }
+
+            _logger.LogInformation($"[5] Retornando resultado para número {phoneNumber}");
             return Ok(new
             {
                 phoneNumber = result.PhoneNumber,
@@ -79,12 +94,21 @@ public class PhoneVerificationController : ControllerBase
         catch (Exception ex)
         {
             _logger.LogError($"Erro ao verificar número {phoneNumber}: {ex.Message}");
+            _logger.LogError($"Tipo de exceção: {ex.GetType().FullName}");
             _logger.LogError($"StackTrace: {ex.StackTrace}");
+
+            if (ex.InnerException != null)
+            {
+                _logger.LogError($"Inner exception: {ex.InnerException.Message}");
+                _logger.LogError($"Inner exception stack trace: {ex.InnerException.StackTrace}");
+            }
+
             return StatusCode(500, new
             {
                 message = "Erro interno ao verificar número",
                 error = ex.Message,
-                stackTrace = ex.StackTrace // Em produção, você pode querer remover isso
+                errorType = ex.GetType().Name,
+                stackTrace = ex.StackTrace
             });
         }
     }
