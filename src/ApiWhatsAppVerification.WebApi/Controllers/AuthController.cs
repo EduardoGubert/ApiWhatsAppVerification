@@ -1,11 +1,13 @@
 ﻿using ApiWhatsAppVerification.Application.UseCases;
 using ApiWhatsAppVerification.Domain.Dtos;
 using ApiWhatsAppVerification.Domain.Entities;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 
 [ApiController]
 [Route("api/[controller]")]
+[EnableCors("AllowVercel")]
 public class AuthController : ControllerBase
 {
     private readonly RegisterUserUseCase _registerUserUseCase;

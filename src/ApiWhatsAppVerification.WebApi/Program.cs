@@ -13,7 +13,7 @@ var mongoDbUri = Environment.GetEnvironmentVariable("MONGODB_URI") ?? builder.Co
 var jwtIssuer = Environment.GetEnvironmentVariable("JWT_ISSUER") ?? builder.Configuration["Jwt:Issuer"];
 var jwtAudience = Environment.GetEnvironmentVariable("JWT_AUDIENCE") ?? builder.Configuration["Jwt:Audience"];
 var jwtSecretKey = Environment.GetEnvironmentVariable("JWT_SECRET_KEY") ?? builder.Configuration["Jwt:SecretKey"];
-var frontendUrl = Environment.GetEnvironmentVariable("FRONTEND_URL") ?? "URL_DO_SEU_FRONTEND_NO_RENDER";
+var frontendUrl = Environment.GetEnvironmentVariable("FRONTEND_URL") ?? "https://whatsapp-verification-frontend.vercel.app";
 
 // Logs para verificar a leitura das variáveis de ambiente
 Console.WriteLine($"MongoDB URI: {mongoDbUri}");
