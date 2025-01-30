@@ -27,19 +27,45 @@ namespace ApiWhatsAppVerification.Application.Services
         private DateTime _dailyCounterReset = DateTime.UtcNow;
 
         public EvolutionWhatsAppVerifier(
-            HttpClient httpClient,
-            IConfiguration configuration,
-            ILogger<EvolutionWhatsAppVerifier> logger,
-            InstanceRotatorUseCase instanceRotator)
+      HttpClient httpClient,
+      IConfiguration configuration,
+      ILogger<EvolutionWhatsAppVerifier> logger,
+      InstanceRotatorUseCase instanceRotator)
         {
-            _httpClient = httpClient;
-            _configuration = configuration;
-            _logger = logger;
-            _instanceRotator = instanceRotator;
+            _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
+            _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
+            _instanceRotator = instanceRotator ?? throw new ArgumentNullException(nameof(instanceRotator));
 
-            // Configura o HttpClient com a API key
-            _httpClient.DefaultRequestHeaders.Add("apikey", _configuration["EvolutionApi:ApiKey"]);
-            _httpClient.BaseAddress = new Uri(_configuration["EvolutionApi:BaseUrl"]);
+            // Pega as configurações das variáveis de ambiente primeiro, depois tenta o appsettings
+            var apiKey = Environment.GetEnvironmentVariable("EVOLUTION_API_KEY")
+                ?? _configuration["EvolutionApi:ApiKey"];
+
+            if (string.IsNullOrEmpty(apiKey))
+            {
+                _logger.LogError("EVOLUTION_API_KEY não encontrada nas variáveis de ambiente ou configuração");
+                throw new InvalidOperationException("API Key não configurada");
+            }
+
+            // Usa a URL base configurada no HttpClient
+            if (_httpClient.BaseAddress == null)
+            {
+                var baseUrl = Environment.GetEnvironmentVariable("EVOLUTION_API_URL")
+                    ?? _configuration["EvolutionApi:BaseUrl"];
+
+                if (string.IsNullOrEmpty(baseUrl))
+                {
+                    _logger.LogError("EVOLUTION_API_URL não encontrada nas variáveis de ambiente ou configuração");
+                    throw new InvalidOperationException("URL base não configurada");
+                }
+
+                _logger.LogInformation($"Configurando URL base: {baseUrl}");
+                _httpClient.BaseAddress = new Uri(baseUrl);
+            }
+
+            _logger.LogInformation("Configurando API key no HttpClient");
+            _httpClient.DefaultRequestHeaders.Clear();
+            _httpClient.DefaultRequestHeaders.Add("apikey", apiKey);
         }
 
         public async Task<EvolutionNumberResponse> VerifyWhatsAppNumber(string phoneNumber)

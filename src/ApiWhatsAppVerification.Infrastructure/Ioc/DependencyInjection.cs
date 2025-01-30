@@ -6,6 +6,7 @@ using ApiWhatsAppVerification.Infrastructure.Data;
 using ApiWhatsAppVerification.Infrastructure.Repositories;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 
 
 namespace ApiWhatsAppVerification.Infrastructure.Ioc
@@ -15,6 +16,11 @@ namespace ApiWhatsAppVerification.Infrastructure.Ioc
         public static IServiceCollection AddInfrastructure(this IServiceCollection services,
                                                            IConfiguration configuration, string mongoDbUri = null)
         {
+            var logger = LoggerFactory.Create(config => config.AddConsole())
+                                    .CreateLogger("Infrastructure");
+
+            logger.LogInformation("Configurando infraestrutura...");
+
             // Configura Mongo
             var connectionString = mongoDbUri ??
             configuration.GetConnectionString("MongoDb");
@@ -24,12 +30,35 @@ namespace ApiWhatsAppVerification.Infrastructure.Ioc
 
             services.AddSingleton(new MongoDbContext(connectionString, databaseName));
 
+            // Configurações
+            services.Configure<Dictionary<string, string>>(configuration.GetSection("AppSettings"));
+
+            // HttpClient nomeado para Evolution API
+            services.AddHttpClient("EvolutionApi", client =>
+            {
+                var baseUrl = configuration["EvolutionApiUrl"];
+                if (string.IsNullOrEmpty(baseUrl))
+                {
+                    throw new InvalidOperationException("EvolutionApiUrl não está configurado");
+                }
+                client.BaseAddress = new Uri(baseUrl);
+                client.DefaultRequestHeaders.Add("Accept", "application/json");
+            });
+
             // Repositórios
             services.AddScoped<IPhoneNumberVerificationRepository, PhoneNumberVerificationRepository>();
             services.AddScoped<IUserRepository, UserRepository>();
 
             // Serviços
-            services.AddScoped<IEvolutionWhatsAppVerifier, EvolutionWhatsAppVerifier>();
+            services.AddScoped<IEvolutionWhatsAppVerifier>(sp =>
+            {
+                var httpClientFactory = sp.GetRequiredService<IHttpClientFactory>();
+                var httpClient = httpClientFactory.CreateClient("EvolutionApi");
+                var config = sp.GetRequiredService<IConfiguration>();
+                var logger = sp.GetRequiredService<ILogger<EvolutionWhatsAppVerifier>>();
+                var rotator = sp.GetRequiredService<InstanceRotatorUseCase>();
+                return new EvolutionWhatsAppVerifier(httpClient, config, logger, rotator);
+            });
             services.AddScoped<IWhatsAppVerifier, WhatsAppVerifier>();
             services.AddScoped<ITokenService, TokenService>();
 

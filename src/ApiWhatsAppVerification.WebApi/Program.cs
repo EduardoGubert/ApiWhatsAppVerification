@@ -6,15 +6,39 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using System.Text;
+using ApiWhatsAppVerification.Application.UseCases;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
+builder.Logging.AddDebug();
+builder.Logging.SetMinimumLevel(LogLevel.Information);
+
+var startupLogger = LoggerFactory.Create(config =>
+{
+    config.AddConsole();
+    config.AddDebug();
+    config.SetMinimumLevel(LogLevel.Information);
+}).CreateLogger("Startup");
 
 // Leitura das variáveis de ambiente e configuração
 var mongoDbUri = Environment.GetEnvironmentVariable("MONGODB_URI") ?? builder.Configuration.GetConnectionString("MongoDb");
 var jwtIssuer = Environment.GetEnvironmentVariable("JWT_ISSUER") ?? builder.Configuration["Jwt:Issuer"];
 var jwtAudience = Environment.GetEnvironmentVariable("JWT_AUDIENCE") ?? builder.Configuration["Jwt:Audience"];
 var jwtSecretKey = Environment.GetEnvironmentVariable("JWT_SECRET_KEY") ?? builder.Configuration["Jwt:SecretKey"];
-var frontendUrl = Environment.GetEnvironmentVariable("FRONTEND_URL") ?? "https://whatsapp-verification-frontend.vercel.app";
+var frontendUrl = Environment.GetEnvironmentVariable("FRONTEND_URL") ?? builder.Configuration["FronEndAUrl:FronEndAUrl"];
+var evolutionApiUrl = Environment.GetEnvironmentVariable("EVOLUTION_API_URL") ?? builder.Configuration["EvolutionApi:BaseUrl"];
+var evolutionApiKey = Environment.GetEnvironmentVariable("EVOLUTION_API_KEY") ?? builder.Configuration["EvolutionApi:ApiKey"];
+var evolutionInstances = Environment.GetEnvironmentVariable("EVOLUTION_API_INSTANCES") ?? builder.Configuration["EvolutionApi:Instances"];
+
+if (string.IsNullOrEmpty(evolutionApiUrl) || string.IsNullOrEmpty(evolutionApiKey))
+{
+    startupLogger.LogError("Configurações da Evolution API não encontradas nas variáveis de ambiente");
+    throw new InvalidOperationException("Configurações da Evolution API não encontradas");
+}
+
+startupLogger.LogInformation("Evolution API configurada com sucesso");
 
 var keyBytes = Encoding.UTF8.GetBytes(jwtSecretKey);
 
@@ -28,18 +52,16 @@ builder.Services.AddCors(options =>
             .AllowAnyHeader()
             .AllowCredentials()
             .WithExposedHeaders("Authorization")
-            .SetIsOriginAllowed(origin => true); // Adicione esta linha
+            .SetIsOriginAllowed(origin => true);
     });
 });
 
-// Adiciona serviços ao contêiner.
 builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "ApiWhatsAppVerification", Version = "v1" });
 
-    // Definição de segurança (tipo Bearer)
     c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Description = "JWT Authorization header usando o esquema Bearer. \r\n\r\n " +
@@ -51,7 +73,6 @@ builder.Services.AddSwaggerGen(c =>
         Scheme = "Bearer"
     });
 
-    // Configura a exigência de segurança global para as operações
     c.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
         {
@@ -76,72 +97,93 @@ if (string.IsNullOrEmpty(mongoDbUri))
     throw new Exception("MongoDB connection string not found in environment variables or configuration.");
 }
 
-// Registra a camada de Infraestrutura (MongoDB, Repositórios, etc.)
+// Configure HttpClient for EvolutionWhatsAppVerifier
+builder.Services.AddHttpClient("EvolutionApi", client =>
+{
+    client.BaseAddress = new Uri(evolutionApiUrl);
+    client.DefaultRequestHeaders.Add("Accept", "application/json");
+    client.DefaultRequestHeaders.Add("apikey", evolutionApiKey);
+});
+
+// Registra a camada de Infraestrutura
 builder.Services.AddInfrastructure(builder.Configuration, mongoDbUri);
 
-
-builder.Logging.ClearProviders();
-builder.Logging.AddConsole();
-builder.Logging.SetMinimumLevel(LogLevel.Information);
-
-// Configura autenticação via JWT
 builder.Services
     .AddAuthentication(options =>
     {
         options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
         options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
     })
-  .AddJwtBearer(options =>
-  {
-      var logger = builder.Services.BuildServiceProvider().GetRequiredService<ILogger<Program>>();
+    .AddJwtBearer(options =>
+    {
+        var logger = builder.Services.BuildServiceProvider().GetRequiredService<ILogger<Program>>();
 
-      options.RequireHttpsMetadata = false;
-      options.SaveToken = true;
-      options.TokenValidationParameters = new TokenValidationParameters
-      {
-          ValidateIssuer = true,
-          ValidateAudience = true,
-          ValidateLifetime = true,
-          ValidateIssuerSigningKey = true,
-          ValidIssuer = jwtIssuer,
-          ValidAudience = jwtAudience,
-          IssuerSigningKey = new SymmetricSecurityKey(keyBytes),
-          ClockSkew = TimeSpan.Zero
-      };
+        options.RequireHttpsMetadata = false;
+        options.SaveToken = true;
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = jwtIssuer,
+            ValidAudience = jwtAudience,
+            IssuerSigningKey = new SymmetricSecurityKey(keyBytes),
+            ClockSkew = TimeSpan.Zero
+        };
 
-      // Handlers de eventos para debug
-      options.Events = new JwtBearerEvents
-      {
-          OnAuthenticationFailed = context =>
-          {
-              logger.LogError($"Falha na autenticação: {context.Exception.Message}");
-              return Task.CompletedTask;
-          },
-          OnTokenValidated = context =>
-          {
-              logger.LogInformation("Token validado com sucesso!");
-              logger.LogInformation($"Claims: {string.Join(", ", context.Principal.Claims.Select(c => $"{c.Type}: {c.Value}"))}");
-              return Task.CompletedTask;
-          },
-          OnChallenge = context =>
-          {
-              logger.LogWarning($"Challenge: {context.Error}, {context.ErrorDescription}");
-              return Task.CompletedTask;
-          }
-      };
-  });
+        options.Events = new JwtBearerEvents
+        {
+            OnAuthenticationFailed = context =>
+            {
+                logger.LogError($"Falha na autenticação: {context.Exception.Message}");
+                return Task.CompletedTask;
+            },
+            OnTokenValidated = context =>
+            {
+                logger.LogInformation("Token validado com sucesso!");
+                logger.LogInformation($"Claims: {string.Join(", ", context.Principal.Claims.Select(c => $"{c.Type}: {c.Value}"))}");
+                return Task.CompletedTask;
+            },
+            OnChallenge = context =>
+            {
+                logger.LogWarning($"Challenge: {context.Error}, {context.ErrorDescription}");
+                return Task.CompletedTask;
+            }
+        };
+    });
 
-// Adiciona autorização
 builder.Services.AddAuthorization();
-
-// Habilita Controllers (MVC)
 builder.Services.AddControllers();
-
-builder.Services.AddHttpClient<IEvolutionWhatsAppVerifier, EvolutionWhatsAppVerifier>();
 
 var app = builder.Build();
 
-// 1. Primeiro o Swagger (antes de qualquer middleware)
+// Middleware de diagnóstico
+app.MapGet("/diagnostic", async (HttpContext context) =>
+{
+    var logger = context.RequestServices.GetRequiredService<ILogger<Program>>();
+    try
+    {
+        using var scope = context.RequestServices.CreateScope();
+        var services = new
+        {
+            HasLogger = scope.ServiceProvider.GetService<ILogger<PhoneVerificationController>>() != null,
+            HasVerifier = scope.ServiceProvider.GetService<IEvolutionWhatsAppVerifier>() != null,
+            HasUseCase = scope.ServiceProvider.GetService<CheckWhatsAppNumberUseCase>() != null,
+            Environment = app.Environment.EnvironmentName,
+            HasMongoDb = !string.IsNullOrEmpty(mongoDbUri),
+            HasEvolutionApiUrl = !string.IsNullOrEmpty(evolutionApiUrl),
+            EvolutionApiUrl = evolutionApiUrl // Apenas para debug, remova em produção
+        };
+        return Results.Ok(services);
+    }
+    catch (Exception ex)
+    {
+        logger.LogError($"Erro no diagnóstico: {ex.Message}");
+        return Results.StatusCode(500);
+    }
+});
+
 if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 {
     app.UseSwagger();
@@ -152,23 +194,16 @@ if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
     });
 }
 
-// 2. HTTPS Redirection (se necessário)
 if (app.Environment.IsProduction())
 {
     app.UseHttpsRedirection();
 }
 
-// 3. Routing DEVE vir antes do CORS e Auth
 app.UseRouting();
-
-// 4. CORS DEVE vir depois do Routing e antes da Auth
 app.UseCors("ProductionPolicy");
-
-// 5. Authentication DEVE vir antes da Authorization
 app.UseAuthentication();
 app.UseAuthorization();
 
-// 6. Middleware de OPTIONS (mova para depois do CORS)
 app.Use(async (context, next) =>
 {
     if (context.Request.Method == "OPTIONS")
@@ -185,12 +220,7 @@ app.Use(async (context, next) =>
     await next();
 });
 
-// 7. Controllers
 app.MapControllers();
 
-// 8. Configuração da porta e execução
 var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
 app.Run($"http://0.0.0.0:{port}");
-
-// Remova esta linha, pois você já tem um app.Run acima
-// app.Run();
