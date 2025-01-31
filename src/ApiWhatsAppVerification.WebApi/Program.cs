@@ -28,9 +28,12 @@ var jwtIssuer = Environment.GetEnvironmentVariable("JWT_ISSUER") ?? builder.Conf
 var jwtAudience = Environment.GetEnvironmentVariable("JWT_AUDIENCE") ?? builder.Configuration["Jwt:Audience"];
 var jwtSecretKey = Environment.GetEnvironmentVariable("JWT_SECRET_KEY") ?? builder.Configuration["Jwt:SecretKey"];
 var frontendUrl = Environment.GetEnvironmentVariable("FRONTEND_URL") ?? builder.Configuration["FronEndAUrl:FronEndAUrl"];
-var evolutionApiUrl = Environment.GetEnvironmentVariable("EVOLUTION_API_URL") ?? builder.Configuration["EvolutionApi:BaseUrl"];
-var evolutionApiKey = Environment.GetEnvironmentVariable("EVOLUTION_API_KEY") ?? builder.Configuration["EvolutionApi:ApiKey"];
-var evolutionInstances = Environment.GetEnvironmentVariable("EVOLUTION_API_INSTANCES") ?? builder.Configuration["EvolutionApi:Instances"];
+var evolutionApiUrl = Environment.GetEnvironmentVariable("EVOLUTION_API_URL")
+    ?? builder.Configuration["EvolutionApi:BaseUrl"]
+    ?? throw new InvalidOperationException("EVOLUTION_API_URL não configurada");
+var evolutionApiKey = Environment.GetEnvironmentVariable("EVOLUTION_API_KEY")
+    ?? builder.Configuration["EvolutionApi:ApiKey"]
+    ?? throw new InvalidOperationException("EVOLUTION_API_KEY não configurada");
 
 if (string.IsNullOrEmpty(evolutionApiUrl) || string.IsNullOrEmpty(evolutionApiKey))
 {
@@ -38,7 +41,10 @@ if (string.IsNullOrEmpty(evolutionApiUrl) || string.IsNullOrEmpty(evolutionApiKe
     throw new InvalidOperationException("Configurações da Evolution API não encontradas");
 }
 
-startupLogger.LogInformation("Evolution API configurada com sucesso");
+startupLogger.LogInformation($"Evolution API URL configurada: {evolutionApiUrl}");
+builder.Configuration["EvolutionApiUrl"] = evolutionApiUrl;
+builder.Configuration["EvolutionApiKey"] = evolutionApiKey;
+
 
 var keyBytes = Encoding.UTF8.GetBytes(jwtSecretKey);
 
