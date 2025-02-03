@@ -36,16 +36,12 @@ var evolutionApiKey = Environment.GetEnvironmentVariable("EVOLUTION_API_KEY")
     ?? builder.Configuration["EvolutionApi:ApiKey"]
     ?? throw new InvalidOperationException("EVOLUTION_API_KEY não configurada");
 
-startupLogger.LogInformation("DADOS ENVIRONMENT: " + mongoDbUri + "/n" + jwtIssuer + "/n" + jwtAudience + "/n" + jwtSecretKey + "/n" + frontendUrl + "/n" + evolutionApiUrl + "/n" + evolutionApiKey);
-
-
 if (string.IsNullOrEmpty(evolutionApiUrl) || string.IsNullOrEmpty(evolutionApiKey))
 {
     startupLogger.LogError("Configurações da Evolution API não encontradas nas variáveis de ambiente");
     throw new InvalidOperationException("Configurações da Evolution API não encontradas");
 }
 
-startupLogger.LogInformation($"Evolution API URL configurada: {evolutionApiUrl}");
 builder.Configuration["EvolutionApiUrl"] = evolutionApiUrl;
 builder.Configuration["EvolutionApiKey"] = evolutionApiKey;
 

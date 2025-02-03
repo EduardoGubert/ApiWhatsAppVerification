@@ -23,9 +23,7 @@ namespace ApiWhatsAppVerification.Infrastructure.Ioc
 
             // Configura Mongo
             var connectionString = Environment.GetEnvironmentVariable("MONGODB_URI") ??
-            configuration.GetConnectionString("MongoDb");
-
-            logger.LogInformation("MongoDB: " + connectionString);
+            configuration.GetConnectionString("MongoDb");            
 
             var databaseName = Environment.GetEnvironmentVariable("DATABASENAME") ?? 
                 configuration["DatabaseName"];
@@ -39,9 +37,7 @@ namespace ApiWhatsAppVerification.Infrastructure.Ioc
             services.AddHttpClient("EvolutionApi", client =>
             {
                 var baseUrl = Environment.GetEnvironmentVariable("EVOLUTION_API_URL") ??
-                                configuration["EvolutionApiUrl"];
-
-                logger.LogInformation("BaseURLEvolutionAPI: " +  baseUrl);
+                                configuration["EvolutionApiUrl"];                
 
                 if (string.IsNullOrEmpty(baseUrl))
                 {

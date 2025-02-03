@@ -18,17 +18,11 @@ namespace ApiWhatsAppVerification.Application.Services
         }
 
         public string GenerateJwtToken(string username)
-        {
-            var logger = LoggerFactory.Create(config => config.AddConsole())
-                                   .CreateLogger("Infrastructure");
+        {       
             var issuer = Environment.GetEnvironmentVariable("JWT_ISSUER") ?? _configuration["Jwt:Issuer"];
             var audience = Environment.GetEnvironmentVariable("JWT_AUDIENCE") ?? _configuration["Jwt:Audience"];
             var secretKey = Environment.GetEnvironmentVariable("JWT_SECRET_KEY") ?? _configuration["Jwt:SecretKey"];
-
-            logger.LogInformation("JWT: " + issuer + "/n" + audience + "/n" + secretKey);
-
-
-            // Verificação adicional do valor da chave secreta
+            
             var keyBytes = Encoding.UTF8.GetBytes(secretKey);
 
             if (keyBytes.Length < 32)

@@ -35,10 +35,7 @@ namespace ApiWhatsAppVerification.Application.Services
             _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
             _configuration = configuration ?? throw new ArgumentNullException(nameof(configuration));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-            _instanceRotator = instanceRotator ?? throw new ArgumentNullException(nameof(instanceRotator));
-
-            _logger.LogInformation($"BaseAddress do HttpClient: {_httpClient.BaseAddress}");
-            _logger.LogInformation("EvolutionWhatsAppVerifier construído com sucesso");
+            _instanceRotator = instanceRotator ?? throw new ArgumentNullException(nameof(instanceRotator));            
         }
 
         public async Task<EvolutionNumberResponse> VerifyWhatsAppNumber(string phoneNumber)

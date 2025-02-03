@@ -24,8 +24,6 @@ public class PhoneVerificationController : ControllerBase
     {
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         _useCase = useCase ?? throw new ArgumentNullException(nameof(useCase));
-
-        _logger.LogInformation("PhoneVerificationController construído com sucesso");
     }
 
     [HttpGet("check")]
