@@ -35,6 +35,9 @@ var evolutionApiKey = Environment.GetEnvironmentVariable("EVOLUTION_API_KEY")
     ?? builder.Configuration["EvolutionApi:ApiKey"]
     ?? throw new InvalidOperationException("EVOLUTION_API_KEY não configurada");
 
+startupLogger.LogInformation("DADOS ENVIRONMENT: " + mongoDbUri + "/n" + jwtIssuer + "/n" + jwtAudience + "/n" + jwtSecretKey + "/n" + frontendUrl + "/n" + evolutionApiUrl + "/n" + evolutionApiKey);
+
+
 if (string.IsNullOrEmpty(evolutionApiUrl) || string.IsNullOrEmpty(evolutionApiKey))
 {
     startupLogger.LogError("Configurações da Evolution API não encontradas nas variáveis de ambiente");
@@ -163,32 +166,6 @@ builder.Services.AddAuthorization();
 builder.Services.AddControllers();
 
 var app = builder.Build();
-
-// Middleware de diagnóstico
-app.MapGet("/diagnostic", async (HttpContext context) =>
-{
-    var logger = context.RequestServices.GetRequiredService<ILogger<Program>>();
-    try
-    {
-        using var scope = context.RequestServices.CreateScope();
-        var services = new
-        {
-            HasLogger = scope.ServiceProvider.GetService<ILogger<PhoneVerificationController>>() != null,
-            HasVerifier = scope.ServiceProvider.GetService<IEvolutionWhatsAppVerifier>() != null,
-            HasUseCase = scope.ServiceProvider.GetService<CheckWhatsAppNumberUseCase>() != null,
-            Environment = app.Environment.EnvironmentName,
-            HasMongoDb = !string.IsNullOrEmpty(mongoDbUri),
-            HasEvolutionApiUrl = !string.IsNullOrEmpty(evolutionApiUrl),
-            EvolutionApiUrl = evolutionApiUrl // Apenas para debug, remova em produção
-        };
-        return Results.Ok(services);
-    }
-    catch (Exception ex)
-    {
-        logger.LogError($"Erro no diagnóstico: {ex.Message}");
-        return Results.StatusCode(500);
-    }
-});
 
 if (app.Environment.IsDevelopment() || app.Environment.IsProduction())
 {

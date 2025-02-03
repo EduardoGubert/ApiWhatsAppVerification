@@ -28,28 +28,6 @@ public class PhoneVerificationController : ControllerBase
         _logger.LogInformation("PhoneVerificationController construído com sucesso");
     }
 
-    [HttpGet("test-di")]
-    [AllowAnonymous]
-    public IActionResult TestDependencyInjection()
-    {
-        try
-        {
-            var services = new
-            {
-                HasLogger = _logger != null,
-                HasUseCase = _useCase != null,
-                UseCaseType = _useCase?.GetType().FullName
-            };
-
-            return Ok(services);
-        }
-        catch (Exception ex)
-        {
-            return StatusCode(500, new { error = ex.Message });
-        }
-    }
-
-
     [HttpGet("check")]
     public async Task<IActionResult> Check(string phoneNumber)
     {
