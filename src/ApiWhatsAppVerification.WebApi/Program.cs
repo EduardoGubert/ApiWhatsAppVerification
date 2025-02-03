@@ -24,6 +24,7 @@ var startupLogger = LoggerFactory.Create(config =>
 
 // Leitura das variáveis de ambiente e configuração
 var mongoDbUri = Environment.GetEnvironmentVariable("MONGODB_URI") ?? builder.Configuration.GetConnectionString("MongoDb");
+var mongoDbName = Environment.GetEnvironmentVariable("DATABASENAME") ?? builder.Configuration["DatabaseName:DatabaseName"];
 var jwtIssuer = Environment.GetEnvironmentVariable("JWT_ISSUER") ?? builder.Configuration["Jwt:Issuer"];
 var jwtAudience = Environment.GetEnvironmentVariable("JWT_AUDIENCE") ?? builder.Configuration["Jwt:Audience"];
 var jwtSecretKey = Environment.GetEnvironmentVariable("JWT_SECRET_KEY") ?? builder.Configuration["Jwt:SecretKey"];
@@ -115,7 +116,7 @@ builder.Services.AddHttpClient("EvolutionApi", client =>
 });
 
 // Registra a camada de Infraestrutura
-builder.Services.AddInfrastructure(builder.Configuration, mongoDbUri);
+builder.Services.AddInfrastructure(builder.Configuration, mongoDbUri, mongoDbName);
 
 builder.Services
     .AddAuthentication(options =>

@@ -14,7 +14,7 @@ namespace ApiWhatsAppVerification.Infrastructure.Ioc
     public static class DependencyInjection
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services,
-                                                           IConfiguration configuration, string mongoDbUri = null)
+                                                           IConfiguration configuration, string mongoDbUri = null,string mongoDbName = null)
         {
             var logger = LoggerFactory.Create(config => config.AddConsole())
                                     .CreateLogger("Infrastructure");
@@ -22,11 +22,13 @@ namespace ApiWhatsAppVerification.Infrastructure.Ioc
             logger.LogInformation("Configurando infraestrutura...");
 
             // Configura Mongo
-            var connectionString = mongoDbUri ??
+            var connectionString = Environment.GetEnvironmentVariable("MONGODB_URI") ??
             configuration.GetConnectionString("MongoDb");
 
-            var databaseName = configuration["DatabaseName"] ??
-            "ApiWhatsAppVerificationDB";
+            logger.LogInformation("MongoDB: " + connectionString);
+
+            var databaseName = Environment.GetEnvironmentVariable("DATABASENAME") ?? 
+                configuration["DatabaseName"];
 
             services.AddSingleton(new MongoDbContext(connectionString, databaseName));
 
@@ -36,7 +38,11 @@ namespace ApiWhatsAppVerification.Infrastructure.Ioc
             // HttpClient nomeado para Evolution API
             services.AddHttpClient("EvolutionApi", client =>
             {
-                var baseUrl = configuration["EvolutionApiUrl"];
+                var baseUrl = Environment.GetEnvironmentVariable("EVOLUTION_API_URL") ??
+                                configuration["EvolutionApiUrl"];
+
+                logger.LogInformation("BaseURLEvolutionAPI: " +  baseUrl);
+
                 if (string.IsNullOrEmpty(baseUrl))
                 {
                     throw new InvalidOperationException("EvolutionApiUrl não está configurado");
